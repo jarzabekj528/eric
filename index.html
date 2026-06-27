@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Say When Contracting | Bathroom & Kitchen Remodeling Lima, Ohio</title>
+  <meta name="description" content="Say When Contracting offers trusted bathroom remodeling, kitchen remodeling, shower remodels, and accessibility upgrades throughout West Central Ohio. Locally owned by Eric. Free estimates." />
+  <meta name="keywords" content="bathroom remodeling Lima Ohio, kitchen remodeling Lima Ohio, shower remodel Lima Ohio, tub to shower conversion Ohio, accessibility upgrades Lima Ohio" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Say When Contracting",
+    "description": "Interior remodeling company specializing in bathroom remodeling, kitchen remodeling, shower remodels, tub-to-shower conversions, and accessibility upgrades throughout West Central Ohio.",
+    "url": "https://saywhencontracting.com",
+    "telephone": "(419) 555-0100",
+    "email": "hello@saywhencontracting.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lima",
+      "addressRegion": "OH",
+      "postalCode": "45801",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.7420,
+      "longitude": -84.1053
+    },
+    "areaServed": [
+      "Lima OH","Findlay OH","Wapakoneta OH","Shawnee OH",
+      "Elida OH","Delphos OH","Bluffton OH","St. Marys OH"
+    ],
+    "openingHours": "Mo-Fr 07:00-18:00",
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "47"
+    }
+  }
+  </script>
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --white:       #FFFFFF;
+      --soft:        #F6F6F6;   /* neutral light gray, replaces warm off-white */
+      --beige:       #E8E8E8;   /* neutral mid border/divider gray              */
+      --stone:       #ADADAD;   /* neutral medium gray                          */
+      --warm-gray:   #555555;   /* body text                                    */
+      --charcoal:    #111111;   /* near-black headings                          */
+      --charcoal-2:  #222222;   /* secondary dark                               */
+      --brass:       #B8905A;   /* accent — used only for eyebrows, CTAs, icons */
+      --brass-dk:    #96723E;
+
+      --line:        #333333;   /* blueprint hairline border                    */
+      --grid:        1px solid var(--line);  /* the structural grid line        */
+
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Blueprint aesthetic — sharp corners throughout */
+      --r-sm: 0;
+      --r-md: 0;
+      --r-lg: 0;
+
+      --sh-card: none;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    .wrap        { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .wrap--tight { max-width: 760px;  margin: 0 auto; padding: 0 24px; }
+
+    /* ─── TYPE ───────────────────────────────────────────── */
+    .eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5.2vw, 62px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.028em;
+    }
+    h2 {
+      font-size: clamp(26px, 3.4vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    p  { font-size: 17px; line-height: 1.72; color: var(--warm-gray); }
+
+    /* ─── BUTTONS ────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: var(--r-sm);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      border: 2px solid transparent;
+      transition: background .18s, border-color .18s, color .18s;
+      white-space: nowrap;
+    }
+    .btn--brass {
+      background: var(--brass);
+      color: var(--white);
+      border-color: var(--brass);
+    }
+    .btn--brass:hover {
+      background: var(--brass-dk);
+      border-color: var(--brass-dk);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--charcoal);
+      border-color: var(--charcoal);
+    }
+    .btn--outline:hover {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .btn--outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.45);
+    }
+    .btn--outline-white:hover {
+      background: var(--white);
+      color: var(--charcoal);
+      border-color: var(--white);
+    }
+
+    /* ─── SECTION HEADER ─────────────────────────────────── */
+    .sec-head           { margin-bottom: 56px; }
+    .sec-head h2        { margin-bottom: 14px; }
+    .sec-head p         { max-width: 540px; }
+    .sec-head--center   { text-align: center; }
+    .sec-head--center p { margin: 0 auto; }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: var(--grid);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 32px;
+    }
+    .nav__logo-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--charcoal);
+    }
+    .nav__logo-sub {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-top: 3px;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+    .nav__links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--warm-gray);
+      transition: color .18s;
+    }
+    .nav__links a:hover { color: var(--charcoal); }
+    .nav__right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav__phone {
+      text-align: right;
+    }
+    .nav__phone-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      display: block;
+    }
+    .nav__phone-num {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: var(--soft);
+      padding: 80px 0 0;
+      overflow: hidden;
+      border-bottom: var(--grid);
+    }
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 56px;
+      align-items: end;
+    }
+    .hero__content   { padding-bottom: 80px; }
+    .hero__headline  { margin-bottom: 22px; }
+    .hero__sub       { font-size: 18px; line-height: 1.7; margin-bottom: 40px; max-width: 480px; }
+    .hero__actions   { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    .hero__img {
+      height: 500px;
+      border: var(--grid);
+      border-bottom: none;
+      overflow: hidden;
+      background: var(--beige);
+    }
+    .img-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .img-ph--hero    { background: #D4D4D4; }
+    .img-ph--why     { background: #CACACA; }
+    .img-ph--about   { background: #C8C8C8; }
+    .img-ph--g1      { background: #D0D0D0; }
+    .img-ph--g2      { background: #C5C5C5; }
+    .img-ph--g3      { background: #CDCDCD; }
+    .img-ph--g4      { background: #C2C2C2; }
+    .img-ph--g5      { background: #CBCBCB; }
+    .img-ph-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(28,25,23,.4);
+    }
+    .img-ph svg { opacity: .3; }
+
+    /* ─── PHOTO TREATMENT ────────────────────────────────────
+       Process / work-in-progress shots → grayscale (the workshop look).
+       Finished "after" portfolio shots → full color so craftsmanship pops.
+       Add class="photo--process" to an <img> to force grayscale.            */
+    .photo--process { filter: grayscale(100%) contrast(1.05); }
+    .photo--process:hover { filter: grayscale(0%); transition: filter .4s; }
+
+    /* ─── TRUST BAR ──────────────────────────────────────── */
+    .trust-bar { background: #111111; padding: 26px 0; }
+    .trust-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .trust-item         { display: flex; align-items: center; gap: 11px; }
+    .trust-item__icon   { width: 32px; height: 32px; color: var(--brass); flex-shrink: 0; }
+    .trust-item__label  { font-size: 13px; font-weight: 500; color: var(--white); letter-spacing: .01em; }
+    .trust-divider      { width: 1px; height: 28px; background: rgba(255,255,255,.1); flex-shrink: 0; }
+
+    /* ─── SERVICES ───────────────────────────────────────── */
+    .services { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0;
+      border-top: var(--grid);
+      border-left: var(--grid);
+    }
+    .svc-card {
+      background: var(--white);
+      padding: 40px 34px;
+      border-right: var(--grid);
+      border-bottom: var(--grid);
+      transition: background .18s;
+    }
+    .svc-card:hover { background: var(--soft); }
+    .svc-card__icon { width: 38px; height: 38px; color: var(--brass); margin-bottom: 18px; }
+    .svc-card h3    { margin-bottom: 9px; }
+    .svc-card p     { font-size: 15px; line-height: 1.65; }
+
+    /* ─── WHY CHOOSE ─────────────────────────────────────── */
+    .why { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
+    .why__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .why__photo {
+      height: 480px;
+      border: var(--grid);
+      overflow: hidden;
+      background: var(--beige);
+    }
+    .why__content h2 { margin-bottom: 16px; }
+    .why__content > p { margin-bottom: 44px; }
+    .features { display: flex; flex-direction: column; gap: 32px; }
+    .feat {
+      display: flex;
+      gap: 18px;
+    }
+    .feat__icon-wrap {
+      width: 42px;
+      height: 42px;
+      border: var(--grid);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .feat__icon { width: 20px; height: 20px; color: var(--brass); }
+    .feat__body h3      { font-size: 16px; margin-bottom: 5px; }
+    .feat__body p       { font-size: 15px; line-height: 1.62; }
+
+    /* ─── GALLERY ────────────────────────────────────────── */
+    .gallery { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: 270px 270px;
+      gap: 0;
+      border-top: var(--grid);
+      border-left: var(--grid);
+    }
+    .g-item {
+      border-right: var(--grid);
+      border-bottom: var(--grid);
+      overflow: hidden;
+      background: var(--beige);
+    }
+    .g-item:first-child { grid-row: span 2; }
+    .gallery__foot {
+      margin-top: 44px;
+      text-align: center;
+    }
+
+    /* ─── REVIEWS ────────────────────────────────────────── */
+    .reviews { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 0;
+      border-top: var(--grid);
+      border-left: var(--grid);
+    }
+    .rev-card {
+      background: var(--white);
+      border-right: var(--grid);
+      border-bottom: var(--grid);
+      padding: 34px;
+    }
+    .rev-card__stars { display: flex; gap: 3px; margin-bottom: 18px; }
+    .rev-card__stars svg { width: 16px; height: 16px; fill: var(--brass); }
+    .rev-card__quote {
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--charcoal-2);
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .rev-card__name  { font-size: 14px; font-weight: 600; color: var(--charcoal); }
+    .rev-card__loc   { font-size: 13px; color: var(--warm-gray); margin-top: 2px; }
+
+    /* ─── PROCESS ────────────────────────────────────────── */
+    .process { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 0;
+      margin-top: 60px;
+      border-top: var(--grid);
+      border-left: var(--grid);
+    }
+    .proc-step {
+      text-align: left;
+      padding: 36px 28px;
+      border-right: var(--grid);
+      border-bottom: var(--grid);
+    }
+    .proc-step__num {
+      width: 48px;
+      height: 48px;
+      border: var(--grid);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 22px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brass);
+      letter-spacing: .04em;
+    }
+    .proc-step h3   { font-size: 16px; margin-bottom: 8px; }
+    .proc-step p    { font-size: 14px; line-height: 1.65; }
+
+    /* ─── ABOUT ERIC ─────────────────────────────────────── */
+    .about { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
+    .about__inner {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about__photo {
+      height: 460px;
+      border: var(--grid);
+      overflow: hidden;
+      background: var(--beige);
+    }
+    .about__content h2    { margin-bottom: 18px; }
+    .about__content p     { margin-bottom: 18px; }
+    .about__content p:last-of-type { margin-bottom: 34px; }
+    .about__sig  { font-size: 30px; font-weight: 300; font-style: italic; color: var(--charcoal); margin-bottom: 2px; }
+    .about__role { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--warm-gray); }
+
+    /* ─── AREAS SERVED ───────────────────────────────────── */
+    .areas {
+      padding: 44px 0;
+      background: var(--white);
+      border-top: 1px solid var(--beige);
+      border-bottom: 1px solid var(--beige);
+    }
+    .areas__inner { text-align: center; }
+    .areas__heading {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 14px;
+    }
+    .areas__list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0 4px;
+    }
+    .areas__list a     { font-size: 14px; color: var(--warm-gray); padding: 5px 12px; transition: color .15s; }
+    .areas__list a:hover { color: var(--charcoal); }
+    .areas__sep        { color: var(--stone); font-size: 11px; }
+
+    /* ─── FINAL CTA ──────────────────────────────────────── */
+    .cta-section { padding: 96px 0; background: #111111; }
+    .cta-section__inner { text-align: center; }
+    .cta-section h2      { color: var(--white); margin-bottom: 14px; }
+    .cta-section__sub    {
+      font-size: 18px;
+      color: var(--stone);
+      max-width: 500px;
+      margin: 0 auto 44px;
+    }
+    .cta-section__btns   {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cta-section__note   { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,.35); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      background: #111111;
+      padding: 64px 0 28px;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .footer__brand-name  { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .footer__tagline     { font-size: 14px; color: var(--stone); line-height: 1.65; margin-bottom: 22px; }
+    .footer__contact p, .footer__contact a { font-size: 14px; color: var(--stone); line-height: 1.85; }
+    .footer__col-head    { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--white); margin-bottom: 18px; }
+    .footer__col-links   { display: flex; flex-direction: column; gap: 11px; }
+    .footer__col-links a { font-size: 14px; color: var(--stone); transition: color .15s; }
+    .footer__col-links a:hover { color: var(--white); }
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__legal  { font-size: 12px; color: rgba(255,255,255,.28); }
+    .footer__badges { display: flex; gap: 10px; }
+    .footer__badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,.35);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 0;
+      padding: 4px 11px;
+      letter-spacing: .04em;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero__inner        { grid-template-columns: 1fr; gap: 40px; }
+      .hero__content      { padding-bottom: 0; }
+      .hero__img          { height: 340px; border-radius: var(--r-lg); }
+      .why__inner         { grid-template-columns: 1fr; }
+      .about__inner       { grid-template-columns: 1fr; }
+      .footer__grid       { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav__links         { display: none; }
+      .nav__phone-label   { display: none; }
+      .services__grid     { grid-template-columns: 1fr; }
+      .reviews__grid      { grid-template-columns: 1fr; }
+      .process__steps     { grid-template-columns: 1fr 1fr; }
+      .gallery__grid      { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery__grid .g-item:first-child { grid-row: span 1; }
+      .g-item             { height: 220px; }
+      .trust-divider      { display: none; }
+      .trust-bar__inner   { justify-content: center; gap: 20px; }
+      .footer__grid       { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 480px) {
+      .hero__actions      { flex-direction: column; align-items: flex-start; }
+      .process__steps     { grid-template-columns: 1fr; }
+      .gallery__grid      { grid-template-columns: 1fr; }
+      .g-item             { height: 240px; }
+      h1                  { font-size: 32px; }
+      .cta-section__btns  { flex-direction: column; align-items: center; }
+      .footer__bottom     { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── ACCESSIBILITY ──────────────────────────────────── */
+    :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="/" aria-label="Say When Contracting — Home">
+        <div class="nav__logo-name">Say When Contracting</div>
+        <span class="nav__logo-sub">Lima, Ohio · Est. 2015</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Our Work</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#about">About Eric</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__right">
+        <div class="nav__phone">
+          <span class="nav__phone-label">Call or text</span>
+          <a href="tel:4195550100" class="nav__phone-num">(419) 555-0100</a>
+        </div>
+        <a href="#contact" class="btn btn--brass">Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="eyebrow">Lima &amp; All of Allen County, Ohio</span>
+        <h1 class="hero__headline">
+          We Remodel Homes.<br>And We Do It Right.
+        </h1>
+        <p class="hero__sub">
+          Bathrooms, kitchens, showers, and accessibility upgrades for homeowners across West Central Ohio. Locally owned. Licensed and insured. Free estimates, every time.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--brass">
+            Get A Free Estimate
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+              <path d="M3 7.5h9M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#gallery" class="btn btn--outline">View Our Work</a>
+        </div>
+      </div>
+
+      <!-- ✏️ PHOTO: Save your hero image as images/hero.jpg, then replace the div below with:
+           <img src="images/hero.jpg" alt="Completed bathroom remodel by Say When Contracting" style="width:100%;height:100%;object-fit:cover;" />  -->
+      <div class="hero__img" role="img" aria-label="Completed bathroom remodel">
+        <div class="img-ph img-ph--hero">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <rect x="7" y="7" width="30" height="30" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="22" cy="18" r="5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M9 37l7-9 5 6 5-5 9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="img-ph-label">Hero photo · Finished bathroom</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ TRUST BAR ═════════════════════════ -->
+<div class="trust-bar" role="complementary" aria-label="Trust indicators">
+  <div class="wrap">
+    <div class="trust-bar__inner">
+
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3L27 8v9c0 6.3-4.7 11.6-11 13C9.7 28.6 5 23.3 5 17V8L16 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M11 16l3.5 3.5L21 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="trust-item__label">Licensed &amp; Insured</span>
+      </div>
+
+      <div class="trust-divider" aria-hidden="true"></div>
+
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M16 8v8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="trust-item__label">Locally Owned Since 2015</span>
+      </div>
+
+      <div class="trust-divider" aria-hidden="true"></div>
+
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M6 12l10-6 10 6v12l-10 6-10-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M6 12l10 6 10-6M16 18v12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="trust-item__label">Experienced Craftsmen</span>
+      </div>
+
+      <div class="trust-divider" aria-hidden="true"></div>
+
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="5" y="10" width="22" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M11 10V8a5 5 0 0110 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="16" cy="18" r="2.5" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span class="trust-item__label">High-Quality Materials</span>
+      </div>
+
+      <div class="trust-divider" aria-hidden="true"></div>
+
+      <div class="trust-item">
+        <svg class="trust-item__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M11 16l3.5 3.5L21 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="trust-item__label">Free Estimates</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════ SERVICES ══════════════════════════ -->
+<section class="services" id="services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">What We Do</span>
+      <h2 id="svc-h">Interior Remodeling Services</h2>
+      <p>From a single bathroom update to a complete kitchen renovation, we bring the same care and craftsmanship to every project — large or small.</p>
+    </div>
+
+    <div class="services__grid">
+
+      <!-- Bathroom -->
+      <div class="svc-card">
+        <svg class="svc-card__icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <rect x="4" y="18" width="30" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M10 18V10a6 6 0 0112 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M4 25h30" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M10 32v3M28 32v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <h3>Bathroom Remodeling</h3>
+        <p>Complete bathroom renovations that transform your space from dated to beautiful — on schedule and within budget.</p>
+      </div>
+
+      <!-- Kitchen -->
+      <div class="svc-card">
+        <svg class="svc-card__icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <rect x="4" y="7" width="30" height="22" rx="2" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M4 18h30" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="13" cy="13" r="3" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="25" cy="13" r="3" stroke="currentColor" stroke-width="1.7"/>
+          <rect x="10" y="22" width="7" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <h3>Kitchen Remodeling</h3>
+        <p>Custom cabinetry, countertops, fixtures, and layouts that make your kitchen the heart of your home again.</p>
+      </div>
+
+      <!-- Shower -->
+      <div class="svc-card">
+        <svg class="svc-card__icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <rect x="6" y="4" width="26" height="24" rx="2" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M6 16h26" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M13 28v6M25 28v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <circle cx="14" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="24" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="19" cy="10" r="2" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14" cy="10" r="2" fill="currentColor" fill-opacity=".25"/>
+          <circle cx="24" cy="10" r="2" fill="currentColor" fill-opacity=".25"/>
+          <circle cx="19" cy="10" r="2" fill="currentColor" fill-opacity=".25"/>
+        </svg>
+        <h3>Shower Remodels</h3>
+        <p>Walk-in showers, custom tile work, frameless glass, and built-in niches — built to last for decades.</p>
+      </div>
+
+      <!-- Tub-to-Shower -->
+      <div class="svc-card">
+        <svg class="svc-card__icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <path d="M7 26h24M7 20l4-10h16l4 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5 26v4M33 26v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M17 7l3-3M21 7l3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <h3>Tub-to-Shower Conversions</h3>
+        <p>Convert a rarely-used tub into a spacious, easy-access shower that fits how you actually live today.</p>
+      </div>
+
+      <!-- Accessibility -->
+      <div class="svc-card">
+        <svg class="svc-card__icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <circle cx="19" cy="9" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M11 19c0-4 3.5-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M11 19l-2 13h20l-2-13" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M8 27h22" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <h3>Accessibility Upgrades</h3>
+        <p>Grab bars, curbless showers, wider doorways, and thoughtful modifications that let you stay in the home you love.</p>
+      </div>
+
+      <!-- Interior Renovations -->
+      <div class="svc-card">
+        <svg class="svc-card__icon" viewBox="0 0 38 38" fill="none" aria-hidden="true">
+          <rect x="5" y="5" width="28" height="28" rx="2" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M5 19h28M19 5v28" stroke="currentColor" stroke-width="1.7"/>
+        </svg>
+        <h3>Interior Renovations</h3>
+        <p>Flooring, trim, drywall, painting, and other updates that bring new life to any room in your home.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ WHY CHOOSE ════════════════════════ -->
+<section class="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="why__inner">
+
+      <!-- ✏️ PHOTO (process shot → grayscale): Save as images/craftsman.jpg, then replace the div below with:
+           <img src="images/craftsman.jpg" alt="Say When Contracting craftsman at work" class="photo--process" style="width:100%;height:100%;object-fit:cover;" />
+           The photo--process class makes it grayscale (the workshop look) and reveals full color on hover.  -->
+      <div class="why__photo" role="img" aria-label="Craftsman working on tile">
+        <div class="img-ph img-ph--why">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <rect x="7" y="7" width="30" height="30" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="22" cy="18" r="5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M9 37l7-9 5 6 5-5 9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="img-ph-label">Photo · Craftsman at work</span>
+        </div>
+      </div>
+
+      <div class="why__content">
+        <span class="eyebrow">Why Homeowners Choose Us</span>
+        <h2 id="why-h">We treat your home like it's our own.</h2>
+        <p>You're not just hiring a contractor. You're inviting someone into your home — and that comes with a responsibility we take seriously every single day.</p>
+
+        <div class="features">
+          <div class="feat">
+            <div class="feat__icon-wrap">
+              <svg class="feat__icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 2L3 6v5c0 4.4 3 7.9 7 9 4-1.1 7-4.6 7-9V6L10 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M7 10l2.5 2.5L13 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="feat__body">
+              <h3>Clear Communication</h3>
+              <p>You'll always know what's happening, what's next, and what to expect. No surprises, no guessing games.</p>
+            </div>
+          </div>
+
+          <div class="feat">
+            <div class="feat__icon-wrap">
+              <svg class="feat__icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M3 17l4-4 4 4 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 19h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="feat__body">
+              <h3>Quality Craftsmanship</h3>
+              <p>We take pride in doing the job right — not just quickly. Our work is built to hold up for years to come.</p>
+            </div>
+          </div>
+
+          <div class="feat">
+            <div class="feat__icon-wrap">
+              <svg class="feat__icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <rect x="2" y="4" width="16" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M6 4V2.5M14 4V2.5M2 8.5h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="feat__body">
+              <h3>On Time, On Budget</h3>
+              <p>We give you an honest estimate upfront and stick to it. Your time and your money both matter to us.</p>
+            </div>
+          </div>
+
+          <div class="feat">
+            <div class="feat__icon-wrap">
+              <svg class="feat__icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M6.5 10l2.5 2.5L14 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="feat__body">
+              <h3>Clean Job Sites, Every Day</h3>
+              <p>We protect your floors, seal off dust, and leave your home clean at the end of every single workday.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ GALLERY ═══════════════════════════ -->
+<section class="gallery" id="gallery" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Our Work</span>
+      <h2 id="gal-h">Recent Projects</h2>
+      <p>Every home is different. Every project gets our full attention from the first conversation to the final walkthrough.</p>
+    </div>
+
+    <div class="gallery__grid" role="list">
+      <!-- ✏️ GALLERY PHOTOS: For each item, replace the inner <div class="img-ph..."> with an <img>.
+           FINISHED "after" shots → full color (no class), so the craftsmanship pops:
+             <img src="images/project-1.jpg" alt="Finished bathroom remodel in Lima" style="width:100%;height:100%;object-fit:cover;" />
+           PROCESS / framing / work-in-progress shots → add class="photo--process" for the grayscale workshop look:
+             <img src="images/project-2.jpg" alt="Tile work in progress" class="photo--process" style="width:100%;height:100%;object-fit:cover;" />
+           Name your files: project-1.jpg ... project-5.jpg  -->
+      <div class="g-item" role="listitem">
+        <div class="img-ph img-ph--g1">
+          <span class="img-ph-label">Bathroom remodel · Lima</span>
+        </div>
+      </div>
+      <div class="g-item" role="listitem">
+        <div class="img-ph img-ph--g2">
+          <span class="img-ph-label">Kitchen remodel · Findlay</span>
+        </div>
+      </div>
+      <div class="g-item" role="listitem">
+        <div class="img-ph img-ph--g3">
+          <span class="img-ph-label">Shower remodel · Wapakoneta</span>
+        </div>
+      </div>
+      <div class="g-item" role="listitem">
+        <div class="img-ph img-ph--g4">
+          <span class="img-ph-label">Tub-to-shower · Bluffton</span>
+        </div>
+      </div>
+      <div class="g-item" role="listitem">
+        <div class="img-ph img-ph--g5">
+          <span class="img-ph-label">Accessibility upgrade · Lima</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery__foot">
+      <a href="#contact" class="btn btn--outline">See More Projects</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ REVIEWS ═══════════════════════════ -->
+<section class="reviews" id="reviews" aria-labelledby="rev-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">What Homeowners Say</span>
+      <h2 id="rev-h">Trusted by Families Throughout West Central Ohio</h2>
+    </div>
+
+    <div class="reviews__grid">
+
+      <article class="rev-card">
+        <div class="rev-card__stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+        </div>
+        <p class="rev-card__quote">"Eric was upfront with us from day one. He told us exactly what the project would cost, how long it would take, and he delivered on every promise. Our new bathroom is beautiful and we get compliments on it constantly."</p>
+        <p class="rev-card__name">Linda &amp; Tom H.</p>
+        <p class="rev-card__loc">Lima, Ohio</p>
+      </article>
+
+      <article class="rev-card">
+        <div class="rev-card__stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+        </div>
+        <p class="rev-card__quote">"We had three contractors come out. Say When was not the cheapest, but they were clearly the most professional. They cleaned up after themselves every single day. Worth every penny — we'd hire them again without hesitation."</p>
+        <p class="rev-card__name">Gary &amp; Sandra M.</p>
+        <p class="rev-card__loc">Bluffton, Ohio</p>
+      </article>
+
+      <article class="rev-card">
+        <div class="rev-card__stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+        </div>
+        <p class="rev-card__quote">"They converted our old tub to a walk-in shower and added grab bars throughout. It has made such a difference for my husband. Eric clearly cares about the families he works for — not just the paycheck."</p>
+        <p class="rev-card__name">Carol J.</p>
+        <p class="rev-card__loc">Wapakoneta, Ohio</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ PROCESS ═══════════════════════════ -->
+<section class="process" aria-labelledby="proc-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">How It Works</span>
+      <h2 id="proc-h">A Simple, Stress-Free Process</h2>
+      <p>We've worked hard to make remodeling as easy as possible for the people who hire us.</p>
+    </div>
+
+    <div class="process__steps">
+      <div class="proc-step">
+        <div class="proc-step__num" aria-hidden="true">01</div>
+        <h3>Free Consultation</h3>
+        <p>We come to your home, listen to what you want, and walk through the project together with no pressure.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-step__num" aria-hidden="true">02</div>
+        <h3>Clear Estimate</h3>
+        <p>You receive a detailed written estimate. No hidden fees, no vague numbers — just an honest answer.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-step__num" aria-hidden="true">03</div>
+        <h3>Skilled Construction</h3>
+        <p>Our craftsmen get to work. We keep you informed at every step and respect your home throughout.</p>
+      </div>
+      <div class="proc-step">
+        <div class="proc-step__num" aria-hidden="true">04</div>
+        <h3>Enjoy Your Home</h3>
+        <p>We do a final walkthrough together. You're fully satisfied before we ever consider the job done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ ABOUT ERIC ════════════════════════ -->
+<section class="about" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="about__inner">
+
+      <!-- ✏️ PHOTO: Save as images/eric.jpg, then replace the div below with:
+           <img src="images/eric.jpg" alt="Eric, owner of Say When Contracting" style="width:100%;height:100%;object-fit:cover;object-position:top;" />  -->
+      <div class="about__photo" role="img" aria-label="Eric, owner of Say When Contracting">
+        <div class="img-ph img-ph--about">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="16" r="8" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M6 42c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span class="img-ph-label">Photo · Eric, owner</span>
+        </div>
+      </div>
+
+      <div class="about__content">
+        <span class="eyebrow">About Eric</span>
+        <h2 id="about-h">The owner answers the phone. Every time.</h2>
+        <p>I started Say When Contracting because I believed homeowners in this area deserved better. Not flashier, not fancier — just better. Better communication. Better craftsmanship. A contractor who does what he says he's going to do.</p>
+        <p>I've spent over 15 years in construction and remodeling. Every project I take on, I treat like it's my own home — because I know how much thought and care you've put into yours over the years, and that deserves to be honored.</p>
+        <p>When you call Say When Contracting, you're calling me. I'll be there from the first conversation to the final walkthrough. That's a promise.</p>
+        <div class="about__sig">Eric</div>
+        <div class="about__role">Owner, Say When Contracting · Lima, Ohio</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ AREAS SERVED ══════════════════════ -->
+<div class="areas" aria-label="Service areas">
+  <div class="wrap">
+    <div class="areas__inner">
+      <p class="areas__heading">Proudly Serving West Central Ohio</p>
+      <div class="areas__list">
+        <a href="/bathroom-remodeling-lima-ohio">Lima</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-findlay-ohio">Findlay</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-wapakoneta-ohio">Wapakoneta</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-bluffton-ohio">Bluffton</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-shawnee-ohio">Shawnee</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-elida-ohio">Elida</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-delphos-ohio">Delphos</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-st-marys-ohio">St. Marys</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-van-wert-ohio">Van Wert</a>
+        <span class="areas__sep" aria-hidden="true">·</span>
+        <a href="/bathroom-remodel-celina-ohio">Celina</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════ FINAL CTA ═════════════════════════ -->
+<section class="cta-section" id="contact" aria-labelledby="cta-h">
+  <div class="wrap">
+    <div class="cta-section__inner">
+      <span class="eyebrow">Get Started</span>
+      <h2 id="cta-h">Ready To Start Your Remodel?</h2>
+      <p class="cta-section__sub">
+        Call or text Eric for a free, no-pressure estimate. We'll come to your home, listen to what you have in mind, and give you an honest answer.
+      </p>
+      <div class="cta-section__btns">
+        <a href="tel:4195550100" class="btn btn--brass">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M14.2 11.1l-2.8-.4-1.3 1.3a10.5 10.5 0 01-5-5l1.3-1.3-.4-2.8H3.2C3 8.4 7.6 13 14.2 12.7v-1.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          Call (419) 555-0100
+        </a>
+        <a href="mailto:hello@saywhencontracting.com" class="btn btn--outline-white">Email Us</a>
+      </div>
+      <p class="cta-section__note">Free estimates · Licensed &amp; insured · Locally owned · No pressure, ever</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════ FOOTER ════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div>
+        <p class="footer__brand-name">Say When Contracting</p>
+        <p class="footer__tagline">Quality craftsmanship and honest service for homeowners throughout West Central Ohio. Locally owned and operated by Eric since 2015.</p>
+        <div class="footer__contact">
+          <p><a href="tel:4195550100">(419) 555-0100</a></p>
+          <p><a href="mailto:hello@saywhencontracting.com">hello@saywhencontracting.com</a></p>
+          <p>Lima, Ohio 45801</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer__col-head">Services</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="/bathroom-remodeling-lima-ohio">Bathroom Remodeling</a></li>
+          <li><a href="/kitchen-remodeling-lima-ohio">Kitchen Remodeling</a></li>
+          <li><a href="/shower-remodel-lima-ohio">Shower Remodels</a></li>
+          <li><a href="/tub-to-shower-conversion">Tub-to-Shower Conversions</a></li>
+          <li><a href="/accessibility-upgrades">Accessibility Upgrades</a></li>
+          <li><a href="/interior-renovations">Interior Renovations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-head">Service Areas</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="/bathroom-remodel-findlay-ohio">Findlay, OH</a></li>
+          <li><a href="/bathroom-remodel-wapakoneta-ohio">Wapakoneta, OH</a></li>
+          <li><a href="/bathroom-remodel-bluffton-ohio">Bluffton, OH</a></li>
+          <li><a href="/bathroom-remodel-delphos-ohio">Delphos, OH</a></li>
+          <li><a href="/bathroom-remodel-st-marys-ohio">St. Marys, OH</a></li>
+          <li><a href="/bathroom-remodel-elida-ohio">Elida, OH</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-head">Company</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="/about">About Eric</a></li>
+          <li><a href="/gallery">Project Gallery</a></li>
+          <li><a href="/reviews">Customer Reviews</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/free-estimate">Free Estimate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__legal">© 2025 Say When Contracting · Lima, Ohio · All rights reserved</p>
+      <div class="footer__badges">
+        <span class="footer__badge">Licensed &amp; Insured</span>
+        <span class="footer__badge">Ohio Contractor</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
