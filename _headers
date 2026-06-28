@@ -1,0 +1,20 @@
+# Security headers for all responses
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Cache images aggressively (they rarely change)
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/logo.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Always revalidate HTML so content updates show immediately
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

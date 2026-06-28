@@ -3,9 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Say When Contracting | Bathroom & Kitchen Remodeling Lima, Ohio</title>
-  <meta name="description" content="Say When Contracting offers trusted bathroom remodeling, kitchen remodeling, shower remodels, and accessibility upgrades throughout West Central Ohio. Locally owned by Eric. Free estimates." />
-  <meta name="keywords" content="bathroom remodeling Lima Ohio, kitchen remodeling Lima Ohio, shower remodel Lima Ohio, tub to shower conversion Ohio, accessibility upgrades Lima Ohio" />
+  <title>Bathroom &amp; Kitchen Remodeling in Lima, OH | Say When Contracting</title>
+  <meta name="description" content="Trusted bathroom remodeling, kitchen remodeling, shower remodels, tub-to-shower conversions, and accessibility upgrades across Lima &amp; West Central Ohio. Locally owned by Eric. Licensed, insured, free estimates." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="canonical" href="https://saywhencontracting.com/" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/logo.jpg" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Say When Contracting" />
+  <meta property="og:title" content="Bathroom &amp; Kitchen Remodeling in Lima, OH | Say When Contracting" />
+  <meta property="og:description" content="Trusted bathroom &amp; kitchen remodeling and accessibility upgrades across West Central Ohio. Locally owned. Licensed, insured, free estimates." />
+  <meta property="og:url" content="https://saywhencontracting.com/" />
+  <meta property="og:image" content="https://saywhencontracting.com/images/hero-bathroom.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bathroom &amp; Kitchen Remodeling in Lima, OH | Say When Contracting" />
+  <meta name="twitter:description" content="Trusted bathroom &amp; kitchen remodeling and accessibility upgrades across West Central Ohio. Licensed, insured, free estimates." />
+  <meta name="twitter:image" content="https://saywhencontracting.com/images/hero-bathroom.jpg" />
+
+  <!-- Preload the hero image (Largest Contentful Paint element) -->
+  <link rel="preload" as="image" href="images/hero-bathroom.jpg" fetchpriority="high" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,12 +37,18 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "GeneralContractor",
+    "@id": "https://saywhencontracting.com/#business",
     "name": "Say When Contracting",
     "description": "Interior remodeling company specializing in bathroom remodeling, kitchen remodeling, shower remodels, tub-to-shower conversions, and accessibility upgrades throughout West Central Ohio.",
     "url": "https://saywhencontracting.com",
-    "telephone": "(419) 555-0100",
-    "email": "hello@saywhencontracting.com",
+    "telephone": "(269) 339-2545",
+    "email": "eric@vpiinvestmentsllc.com",
+    "image": "https://saywhencontracting.com/images/hero-bathroom.jpg",
+    "logo": "https://saywhencontracting.com/logo.jpg",
+    "founder": { "@type": "Person", "name": "Eric" },
+    "foundingDate": "2015",
+    "sameAs": ["https://www.facebook.com/profile.php?id=61588240451125"],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Lima",
@@ -36,15 +63,16 @@
     },
     "areaServed": [
       "Lima OH","Findlay OH","Wapakoneta OH","Shawnee OH",
-      "Elida OH","Delphos OH","Bluffton OH","St. Marys OH"
+      "Elida OH","Delphos OH","Bluffton OH","St. Marys OH","Van Wert OH","Celina OH"
     ],
-    "openingHours": "Mo-Fr 07:00-18:00",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:00",
+      "closes": "18:00"
+    },
     "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "reviewCount": "47"
-    }
+    "knowsAbout": ["Bathroom Remodeling","Kitchen Remodeling","Shower Remodels","Tub-to-Shower Conversions","Accessibility Upgrades","Interior Renovations"]
   }
   </script>
 
@@ -365,23 +393,83 @@
     .feat__body h3      { font-size: 16px; margin-bottom: 5px; }
     .feat__body p       { font-size: 15px; line-height: 1.62; }
 
-    /* ─── GALLERY ────────────────────────────────────────── */
+    /* ─── GALLERY (BEFORE / AFTER) ───────────────────────── */
     .gallery { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
+
+    /* Before/After transformation rows */
+    .ba-list { display: flex; flex-direction: column; gap: 56px; }
+    .ba {
+      border: var(--grid);
+    }
+    .ba__pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .ba__frame {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--beige);
+    }
+    .ba__frame:first-child { border-right: var(--grid); }
+    .ba__frame img { width: 100%; height: 100%; object-fit: cover; }
+    .ba__tag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .ba__tag--after { background: var(--brass); }
+    .ba__cap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 18px 22px;
+      border-top: var(--grid);
+    }
+    .ba__cap-title { font-size: 15px; font-weight: 600; color: var(--charcoal); }
+    .ba__cap-loc {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--brass);
+    }
+
+    /* Finished-detail strip */
+    .gallery__detail-head {
+      margin: 64px 0 0;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
     .gallery__grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      grid-template-rows: 270px 270px;
       gap: 0;
+      margin-top: 28px;
       border-top: var(--grid);
       border-left: var(--grid);
     }
     .g-item {
+      aspect-ratio: 3 / 4;
       border-right: var(--grid);
       border-bottom: var(--grid);
       overflow: hidden;
       background: var(--beige);
     }
-    .g-item:first-child { grid-row: span 2; }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; }
     .gallery__foot {
       margin-top: 44px;
       text-align: center;
@@ -391,8 +479,10 @@
     .reviews { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
     .reviews__grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(2,1fr);
       gap: 0;
+      max-width: 860px;
+      margin: 0 auto;
       border-top: var(--grid);
       border-left: var(--grid);
     }
@@ -553,6 +643,25 @@
       letter-spacing: .04em;
     }
 
+    /* ─── MOBILE STICKY CALL BAR ─────────────────────────────
+       Hidden on desktop; shown ≤768px. Puts call + estimate in the
+       thumb-reachable bottom zone — the highest-converting mobile pattern. */
+    .mobile-cta { display: none; }
+    .mobile-cta__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 1;
+      min-height: 54px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .mobile-cta__btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .mobile-cta__btn--call     { background: var(--brass); color: var(--white); }
+    .mobile-cta__btn--estimate { background: var(--charcoal); color: var(--white); }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1024px) {
       .hero__inner        { grid-template-columns: 1fr; gap: 40px; }
@@ -564,22 +673,38 @@
     }
     @media (max-width: 768px) {
       .nav__links         { display: none; }
-      .nav__phone-label   { display: none; }
+      .nav__phone         { display: none; }   /* call lives in the sticky bottom bar */
+      .nav__inner         { gap: 14px; }
+      .nav__logo-name     { font-size: 15px; white-space: nowrap; }
+      .nav .btn--brass    { padding: 11px 18px; font-size: 14px; }
       .services__grid     { grid-template-columns: 1fr; }
       .reviews__grid      { grid-template-columns: 1fr; }
       .process__steps     { grid-template-columns: 1fr 1fr; }
-      .gallery__grid      { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .gallery__grid .g-item:first-child { grid-row: span 1; }
-      .g-item             { height: 220px; }
+      .gallery__grid      { grid-template-columns: 1fr 1fr; }
       .trust-divider      { display: none; }
       .trust-bar__inner   { justify-content: center; gap: 20px; }
       .footer__grid       { grid-template-columns: 1fr; gap: 32px; }
+
+      /* Larger tap targets for footer & area links (min ~44px) */
+      .footer__col-links a,
+      .footer__contact a  { display: inline-block; padding: 6px 0; }
+      .footer__col-links  { gap: 4px; }
+      .areas__list a      { padding: 11px 12px; }
+
+      /* Sticky bottom call bar */
+      body                { padding-bottom: 56px; }
+      .mobile-cta {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 300;
+        border-top: var(--grid);
+      }
     }
     @media (max-width: 480px) {
       .hero__actions      { flex-direction: column; align-items: flex-start; }
       .process__steps     { grid-template-columns: 1fr; }
       .gallery__grid      { grid-template-columns: 1fr; }
-      .g-item             { height: 240px; }
       h1                  { font-size: 32px; }
       .cta-section__btns  { flex-direction: column; align-items: center; }
       .footer__bottom     { flex-direction: column; align-items: flex-start; }
@@ -612,7 +737,7 @@
       <div class="nav__right">
         <div class="nav__phone">
           <span class="nav__phone-label">Call or text</span>
-          <a href="tel:4195550100" class="nav__phone-num">(419) 555-0100</a>
+          <a href="tel:+12693392545" class="nav__phone-num">(269) 339-2545</a>
         </div>
         <a href="#contact" class="btn btn--brass">Free Estimate</a>
       </div>
@@ -644,17 +769,8 @@
         </div>
       </div>
 
-      <!-- ✏️ PHOTO: Save your hero image as images/hero.jpg, then replace the div below with:
-           <img src="images/hero.jpg" alt="Completed bathroom remodel by Say When Contracting" style="width:100%;height:100%;object-fit:cover;" />  -->
-      <div class="hero__img" role="img" aria-label="Completed bathroom remodel">
-        <div class="img-ph img-ph--hero">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <rect x="7" y="7" width="30" height="30" rx="2" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="22" cy="18" r="5" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M9 37l7-9 5 6 5-5 9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="img-ph-label">Hero photo · Finished bathroom</span>
-        </div>
+      <div class="hero__img">
+        <img src="images/hero-bathroom.jpg" alt="Completed bathroom remodel by Say When Contracting — gray vanity, walk-in shower with grab bars, and rustic accent wall in Lima, Ohio" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
       </div>
     </div>
   </div>
@@ -816,18 +932,8 @@
   <div class="wrap">
     <div class="why__inner">
 
-      <!-- ✏️ PHOTO (process shot → grayscale): Save as images/craftsman.jpg, then replace the div below with:
-           <img src="images/craftsman.jpg" alt="Say When Contracting craftsman at work" class="photo--process" style="width:100%;height:100%;object-fit:cover;" />
-           The photo--process class makes it grayscale (the workshop look) and reveals full color on hover.  -->
-      <div class="why__photo" role="img" aria-label="Craftsman working on tile">
-        <div class="img-ph img-ph--why">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <rect x="7" y="7" width="30" height="30" rx="2" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="22" cy="18" r="5" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M9 37l7-9 5 6 5-5 9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-          <span class="img-ph-label">Photo · Craftsman at work</span>
-        </div>
+      <div class="why__photo">
+        <img src="images/craftsman-waterproofing.jpg" alt="Say When Contracting craftsman applying waterproofing membrane to a shower before tiling" class="photo--process" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
       </div>
 
       <div class="why__content">
@@ -900,46 +1006,80 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Our Work</span>
-      <h2 id="gal-h">Recent Projects</h2>
-      <p>Every home is different. Every project gets our full attention from the first conversation to the final walkthrough.</p>
+      <h2 id="gal-h">Before &amp; After</h2>
+      <p>Real homes in West Central Ohio, transformed. Every project gets our full attention from the first conversation to the final walkthrough.</p>
     </div>
 
+    <div class="ba-list">
+
+      <figure class="ba">
+        <div class="ba__pair">
+          <div class="ba__frame">
+            <span class="ba__tag">Before</span>
+            <img src="images/before-1.jpg" alt="Dated, cramped bathroom before remodeling, with old fixtures and a mobility walker" loading="lazy" />
+          </div>
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--after">After</span>
+            <img src="images/after-1.jpg" alt="Remodeled accessible bathroom with rustic plank walls, barn door, and grab bars" loading="lazy" />
+          </div>
+        </div>
+        <figcaption class="ba__cap">
+          <span class="ba__cap-title">Accessible bathroom remodel &amp; barn door</span>
+          <span class="ba__cap-loc">Lima, Ohio</span>
+        </figcaption>
+      </figure>
+
+      <figure class="ba">
+        <div class="ba__pair">
+          <div class="ba__frame">
+            <span class="ba__tag">Before</span>
+            <img src="images/before-2.jpg" alt="Bathroom stripped to the studs during demolition, old tub and window exposed" loading="lazy" />
+          </div>
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--after">After</span>
+            <img src="images/after-2.jpg" alt="Finished bathroom with white marble tile tub surround and new wood-look flooring" loading="lazy" />
+          </div>
+        </div>
+        <figcaption class="ba__cap">
+          <span class="ba__cap-title">Full tub &amp; tile rebuild</span>
+          <span class="ba__cap-loc">Allen County, Ohio</span>
+        </figcaption>
+      </figure>
+
+      <figure class="ba">
+        <div class="ba__pair">
+          <div class="ba__frame">
+            <span class="ba__tag">Before</span>
+            <img src="images/before-3.jpg" alt="Old, cluttered bathroom with dated vanity and fixtures before remodeling" loading="lazy" />
+          </div>
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--after">After</span>
+            <img src="images/after-3.jpg" alt="Updated bathroom with new white vanity, rustic accent wall, and walk-in shower" loading="lazy" />
+          </div>
+        </div>
+        <figcaption class="ba__cap">
+          <span class="ba__cap-title">Complete bathroom makeover</span>
+          <span class="ba__cap-loc">West Central Ohio</span>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <p class="gallery__detail-head">A Few Finished Details</p>
     <div class="gallery__grid" role="list">
-      <!-- ✏️ GALLERY PHOTOS: For each item, replace the inner <div class="img-ph..."> with an <img>.
-           FINISHED "after" shots → full color (no class), so the craftsmanship pops:
-             <img src="images/project-1.jpg" alt="Finished bathroom remodel in Lima" style="width:100%;height:100%;object-fit:cover;" />
-           PROCESS / framing / work-in-progress shots → add class="photo--process" for the grayscale workshop look:
-             <img src="images/project-2.jpg" alt="Tile work in progress" class="photo--process" style="width:100%;height:100%;object-fit:cover;" />
-           Name your files: project-1.jpg ... project-5.jpg  -->
       <div class="g-item" role="listitem">
-        <div class="img-ph img-ph--g1">
-          <span class="img-ph-label">Bathroom remodel · Lima</span>
-        </div>
+        <img src="images/detail-1.jpg" alt="Walk-in shower with grab bar and rustic plank accent wall" loading="lazy" />
       </div>
       <div class="g-item" role="listitem">
-        <div class="img-ph img-ph--g2">
-          <span class="img-ph-label">Kitchen remodel · Findlay</span>
-        </div>
+        <img src="images/detail-2.jpg" alt="Accessible shower with built-in seat and grab bar" loading="lazy" />
       </div>
       <div class="g-item" role="listitem">
-        <div class="img-ph img-ph--g3">
-          <span class="img-ph-label">Shower remodel · Wapakoneta</span>
-        </div>
-      </div>
-      <div class="g-item" role="listitem">
-        <div class="img-ph img-ph--g4">
-          <span class="img-ph-label">Tub-to-shower · Bluffton</span>
-        </div>
-      </div>
-      <div class="g-item" role="listitem">
-        <div class="img-ph img-ph--g5">
-          <span class="img-ph-label">Accessibility upgrade · Lima</span>
-        </div>
+        <img src="images/detail-3.jpg" alt="New vanity and mirror against a rustic gray plank wall" loading="lazy" />
       </div>
     </div>
 
     <div class="gallery__foot">
-      <a href="#contact" class="btn btn--outline">See More Projects</a>
+      <a href="#contact" class="btn btn--outline">Start Your Project</a>
     </div>
   </div>
 </section>
@@ -963,9 +1103,9 @@
           <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
           <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
         </div>
-        <p class="rev-card__quote">"Eric was upfront with us from day one. He told us exactly what the project would cost, how long it would take, and he delivered on every promise. Our new bathroom is beautiful and we get compliments on it constantly."</p>
-        <p class="rev-card__name">Linda &amp; Tom H.</p>
-        <p class="rev-card__loc">Lima, Ohio</p>
+        <p class="rev-card__quote">"Eric and Andrew just finished my bathroom remodel and I couldn't be more pleased. Impeccable communication through the entire process. Eric gave me a quote and it never changed. He gave me a two-week timeframe and was on time to the day. When he left, the area inside and out was cleaner than I left it. I can't say enough about this company."</p>
+        <p class="rev-card__name">Bob Flynn</p>
+        <p class="rev-card__loc">via Facebook</p>
       </article>
 
       <article class="rev-card">
@@ -976,22 +1116,9 @@
           <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
           <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
         </div>
-        <p class="rev-card__quote">"We had three contractors come out. Say When was not the cheapest, but they were clearly the most professional. They cleaned up after themselves every single day. Worth every penny — we'd hire them again without hesitation."</p>
-        <p class="rev-card__name">Gary &amp; Sandra M.</p>
-        <p class="rev-card__loc">Bluffton, Ohio</p>
-      </article>
-
-      <article class="rev-card">
-        <div class="rev-card__stars" aria-label="5 out of 5 stars">
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
-        </div>
-        <p class="rev-card__quote">"They converted our old tub to a walk-in shower and added grab bars throughout. It has made such a difference for my husband. Eric clearly cares about the families he works for — not just the paycheck."</p>
-        <p class="rev-card__name">Carol J.</p>
-        <p class="rev-card__loc">Wapakoneta, Ohio</p>
+        <p class="rev-card__quote">"Eric and his partner do a phenomenal job. They've done multiple jobs at my home and they've turned out better than I ever expected. Not to mention, all my jobs have been done on time — plus their clean-up is second to none. Say When gets an A-plus in my book."</p>
+        <p class="rev-card__name">Damon Baldridge</p>
+        <p class="rev-card__loc">via Facebook</p>
       </article>
 
     </div>
@@ -1039,16 +1166,8 @@
   <div class="wrap">
     <div class="about__inner">
 
-      <!-- ✏️ PHOTO: Save as images/eric.jpg, then replace the div below with:
-           <img src="images/eric.jpg" alt="Eric, owner of Say When Contracting" style="width:100%;height:100%;object-fit:cover;object-position:top;" />  -->
-      <div class="about__photo" role="img" aria-label="Eric, owner of Say When Contracting">
-        <div class="img-ph img-ph--about">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-            <circle cx="22" cy="16" r="8" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M6 42c0-8.8 7.2-16 16-16s16 7.2 16 16" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-          <span class="img-ph-label">Photo · Eric, owner</span>
-        </div>
+      <div class="about__photo">
+        <img src="images/eric-working.jpg" alt="Eric, owner of Say When Contracting, installing a new tub on a job site" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
       </div>
 
       <div class="about__content">
@@ -1072,25 +1191,25 @@
     <div class="areas__inner">
       <p class="areas__heading">Proudly Serving West Central Ohio</p>
       <div class="areas__list">
-        <a href="/bathroom-remodeling-lima-ohio">Lima</a>
+        <a href="#contact">Lima</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-findlay-ohio">Findlay</a>
+        <a href="#contact">Findlay</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-wapakoneta-ohio">Wapakoneta</a>
+        <a href="#contact">Wapakoneta</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-bluffton-ohio">Bluffton</a>
+        <a href="#contact">Bluffton</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-shawnee-ohio">Shawnee</a>
+        <a href="#contact">Shawnee</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-elida-ohio">Elida</a>
+        <a href="#contact">Elida</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-delphos-ohio">Delphos</a>
+        <a href="#contact">Delphos</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-st-marys-ohio">St. Marys</a>
+        <a href="#contact">St. Marys</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-van-wert-ohio">Van Wert</a>
+        <a href="#contact">Van Wert</a>
         <span class="areas__sep" aria-hidden="true">·</span>
-        <a href="/bathroom-remodel-celina-ohio">Celina</a>
+        <a href="#contact">Celina</a>
       </div>
     </div>
   </div>
@@ -1107,13 +1226,13 @@
         Call or text Eric for a free, no-pressure estimate. We'll come to your home, listen to what you have in mind, and give you an honest answer.
       </p>
       <div class="cta-section__btns">
-        <a href="tel:4195550100" class="btn btn--brass">
+        <a href="tel:+12693392545" class="btn btn--brass">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M14.2 11.1l-2.8-.4-1.3 1.3a10.5 10.5 0 01-5-5l1.3-1.3-.4-2.8H3.2C3 8.4 7.6 13 14.2 12.7v-1.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           </svg>
-          Call (419) 555-0100
+          Call (269) 339-2545
         </a>
-        <a href="mailto:hello@saywhencontracting.com" class="btn btn--outline-white">Email Us</a>
+        <a href="mailto:eric@vpiinvestmentsllc.com" class="btn btn--outline-white">Email Us</a>
       </div>
       <p class="cta-section__note">Free estimates · Licensed &amp; insured · Locally owned · No pressure, ever</p>
     </div>
@@ -1130,52 +1249,52 @@
         <p class="footer__brand-name">Say When Contracting</p>
         <p class="footer__tagline">Quality craftsmanship and honest service for homeowners throughout West Central Ohio. Locally owned and operated by Eric since 2015.</p>
         <div class="footer__contact">
-          <p><a href="tel:4195550100">(419) 555-0100</a></p>
-          <p><a href="mailto:hello@saywhencontracting.com">hello@saywhencontracting.com</a></p>
+          <p><a href="tel:+12693392545">(269) 339-2545</a></p>
+          <p><a href="mailto:eric@vpiinvestmentsllc.com">eric@vpiinvestmentsllc.com</a></p>
           <p>Lima, Ohio 45801</p>
+          <p><a href="https://www.facebook.com/profile.php?id=61588240451125" target="_blank" rel="noopener">Follow us on Facebook</a></p>
         </div>
       </div>
 
       <div>
         <p class="footer__col-head">Services</p>
         <ul class="footer__col-links" role="list">
-          <li><a href="/bathroom-remodeling-lima-ohio">Bathroom Remodeling</a></li>
-          <li><a href="/kitchen-remodeling-lima-ohio">Kitchen Remodeling</a></li>
-          <li><a href="/shower-remodel-lima-ohio">Shower Remodels</a></li>
-          <li><a href="/tub-to-shower-conversion">Tub-to-Shower Conversions</a></li>
-          <li><a href="/accessibility-upgrades">Accessibility Upgrades</a></li>
-          <li><a href="/interior-renovations">Interior Renovations</a></li>
+          <li><a href="#services">Bathroom Remodeling</a></li>
+          <li><a href="#services">Kitchen Remodeling</a></li>
+          <li><a href="#services">Shower Remodels</a></li>
+          <li><a href="#services">Tub-to-Shower Conversions</a></li>
+          <li><a href="#services">Accessibility Upgrades</a></li>
+          <li><a href="#services">Interior Renovations</a></li>
         </ul>
       </div>
 
       <div>
         <p class="footer__col-head">Service Areas</p>
         <ul class="footer__col-links" role="list">
-          <li><a href="/bathroom-remodel-findlay-ohio">Findlay, OH</a></li>
-          <li><a href="/bathroom-remodel-wapakoneta-ohio">Wapakoneta, OH</a></li>
-          <li><a href="/bathroom-remodel-bluffton-ohio">Bluffton, OH</a></li>
-          <li><a href="/bathroom-remodel-delphos-ohio">Delphos, OH</a></li>
-          <li><a href="/bathroom-remodel-st-marys-ohio">St. Marys, OH</a></li>
-          <li><a href="/bathroom-remodel-elida-ohio">Elida, OH</a></li>
+          <li><a href="#contact">Findlay, OH</a></li>
+          <li><a href="#contact">Wapakoneta, OH</a></li>
+          <li><a href="#contact">Bluffton, OH</a></li>
+          <li><a href="#contact">Delphos, OH</a></li>
+          <li><a href="#contact">St. Marys, OH</a></li>
+          <li><a href="#contact">Elida, OH</a></li>
         </ul>
       </div>
 
       <div>
         <p class="footer__col-head">Company</p>
         <ul class="footer__col-links" role="list">
-          <li><a href="/about">About Eric</a></li>
-          <li><a href="/gallery">Project Gallery</a></li>
-          <li><a href="/reviews">Customer Reviews</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/free-estimate">Free Estimate</a></li>
+          <li><a href="#about">About Eric</a></li>
+          <li><a href="#gallery">Project Gallery</a></li>
+          <li><a href="#reviews">Customer Reviews</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact">Free Estimate</a></li>
         </ul>
       </div>
 
     </div>
 
     <div class="footer__bottom">
-      <p class="footer__legal">© 2025 Say When Contracting · Lima, Ohio · All rights reserved</p>
+      <p class="footer__legal">© 2026 Say When Contracting · Lima, Ohio · All rights reserved</p>
       <div class="footer__badges">
         <span class="footer__badge">Licensed &amp; Insured</span>
         <span class="footer__badge">Ohio Contractor</span>
@@ -1183,6 +1302,18 @@
     </div>
   </div>
 </footer>
+
+
+<!-- ═══════════════════ MOBILE STICKY CALL BAR (≤768px) ════════════════ -->
+<div class="mobile-cta" aria-label="Quick contact">
+  <a href="tel:+12693392545" class="mobile-cta__btn mobile-cta__btn--call">
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M14.2 11.1l-2.8-.4-1.3 1.3a10.5 10.5 0 01-5-5l1.3-1.3-.4-2.8H3.2C3 8.4 7.6 13 14.2 12.7v-1.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>
+    Call Eric
+  </a>
+  <a href="#contact" class="mobile-cta__btn mobile-cta__btn--estimate">Free Estimate</a>
+</div>
 
 </body>
 </html>
