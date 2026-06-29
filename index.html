@@ -7,7 +7,7 @@
   <meta name="description" content="Trusted bathroom remodeling, kitchen remodeling, shower remodels, tub-to-shower conversions, and accessibility upgrades across Lima &amp; West Central Ohio. Locally owned by Eric. Licensed, insured, free estimates." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#111111" />
-  <link rel="canonical" href="https://saywhencontracting.com/" />
+  <link rel="canonical" href="https://www.saywhencontracting.com/" />
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -18,12 +18,14 @@
   <meta property="og:site_name" content="Say When Contracting" />
   <meta property="og:title" content="Bathroom &amp; Kitchen Remodeling in Lima, OH | Say When Contracting" />
   <meta property="og:description" content="Trusted bathroom &amp; kitchen remodeling and accessibility upgrades across West Central Ohio. Locally owned. Licensed, insured, free estimates." />
-  <meta property="og:url" content="https://saywhencontracting.com/" />
-  <meta property="og:image" content="https://saywhencontracting.com/images/hero-bathroom.jpg" />
+  <meta property="og:url" content="https://www.saywhencontracting.com/" />
+  <meta property="og:image" content="https://www.saywhencontracting.com/images/hero-bathroom.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Bathroom &amp; Kitchen Remodeling in Lima, OH | Say When Contracting" />
   <meta name="twitter:description" content="Trusted bathroom &amp; kitchen remodeling and accessibility upgrades across West Central Ohio. Licensed, insured, free estimates." />
-  <meta name="twitter:image" content="https://saywhencontracting.com/images/hero-bathroom.jpg" />
+  <meta name="twitter:image" content="https://www.saywhencontracting.com/images/hero-bathroom.webp" />
 
   <!-- Preload the hero image (Largest Contentful Paint element) — responsive WebP -->
   <link rel="preload" as="image" href="images/hero-bathroom-800.webp"
@@ -38,15 +40,22 @@
   {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
-    "@id": "https://saywhencontracting.com/#business",
+    "@id": "https://www.saywhencontracting.com/#business",
     "name": "Say When Contracting",
     "description": "Interior remodeling company specializing in bathroom remodeling, kitchen remodeling, shower remodels, tub-to-shower conversions, and accessibility upgrades throughout West Central Ohio.",
-    "url": "https://saywhencontracting.com",
+    "url": "https://www.saywhencontracting.com",
     "telephone": "+1-269-339-2545",
     "email": "eric@vpiinvestmentsllc.com",
-    "image": "https://saywhencontracting.com/images/hero-bathroom.jpg",
-    "logo": "https://saywhencontracting.com/logo.jpg",
-    "founder": { "@type": "Person", "name": "Eric" },
+    "image": "https://www.saywhencontracting.com/images/hero-bathroom.webp",
+    "logo": "https://www.saywhencontracting.com/logo.jpg",
+    "founder": {
+      "@type": "Person",
+      "name": "Eric Vinson",
+      "jobTitle": "Owner",
+      "worksFor": { "@id": "https://www.saywhencontracting.com/#business" },
+      "description": "Eric Vinson has over 15 years of experience in residential construction and remodeling. He founded Say When Contracting in 2015 to bring reliable, respectful craftsmanship to homeowners in Lima and West Central Ohio.",
+      "sameAs": ["https://www.facebook.com/profile.php?id=61588240451125"]
+    },
     "foundingDate": "2015",
     "sameAs": ["https://www.facebook.com/profile.php?id=61588240451125"],
     "address": {
@@ -886,6 +895,16 @@
     .form.is-sent .form__body { display: none; }
     .form.is-sent .form__success { display: block; }
 
+    /* Google Maps embed — local relevance signal, blueprint-framed */
+    .map-wrap {
+      max-width: 640px;
+      margin: 44px auto 0;
+      aspect-ratio: 16 / 9;
+      border: var(--grid);
+      overflow: hidden;
+    }
+    .map-wrap iframe { display: block; width: 100%; height: 100%; }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1024px) {
       .hero__inner        { grid-template-columns: 1fr; gap: 40px; }
@@ -1410,7 +1429,7 @@
         </div>
         <h3>Worked with us? We'd love your review.</h3>
         <p>Reviews from real Lima-area homeowners mean the world to a locally owned business — and they help your neighbors find us. It only takes a minute.</p>
-        <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" class="btn btn--brass" target="_blank" rel="noopener" data-review-link>Leave a Google Review</a>
+        <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" class="btn btn--brass" target="_blank" rel="noopener noreferrer" data-review-link>Leave a Google Review</a>
       </div>
 
     </div>
@@ -1625,7 +1644,7 @@
           <input type="hidden" name="_subject" value="New Free Estimate Request — saywhencontracting.com" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://saywhencontracting.com/thank-you.html" />
+          <input type="hidden" name="_next" value="https://www.saywhencontracting.com/thank-you.html" />
           <!-- honeypot: bots fill this, humans don't see it -->
           <div class="field--hp" aria-hidden="true">
             <label for="company">Company</label>
@@ -1685,6 +1704,17 @@
       </form>
 
     </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Lima,+Ohio+45801&output=embed"
+        width="100%" height="100%"
+        style="border: 0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Say When Contracting — Lima, Ohio"></iframe>
+    </div>
   </div>
 </section>
 
@@ -1701,7 +1731,7 @@
           <p><a href="tel:+12693392545">(269) 339-2545</a></p>
           <p><a href="mailto:eric@vpiinvestmentsllc.com">eric@vpiinvestmentsllc.com</a></p>
           <p>Lima, Ohio 45801</p>
-          <p><a href="https://www.facebook.com/profile.php?id=61588240451125" target="_blank" rel="noopener">Follow us on Facebook</a></p>
+          <p><a href="https://www.facebook.com/profile.php?id=61588240451125" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a></p>
         </div>
       </div>
 

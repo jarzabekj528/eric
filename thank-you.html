@@ -4,46 +4,365 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You | Say When Contracting</title>
+  <meta name="description" content="Thank you for contacting Say When Contracting. Eric will review your request and reach out — usually within one business day." />
   <meta name="robots" content="noindex, follow" />
   <meta name="theme-color" content="#111111" />
+  <link rel="canonical" href="https://www.saywhencontracting.com/thank-you.html" />
+
+  <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/logo.jpg" />
+
+  <!-- Self-hosted Inter (variable woff2) -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
+
   <style>
+    /* ─── FONT (self-hosted Inter variable) ──────────────── */
     @font-face {
-      font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
       src: url('/fonts/inter-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+    }
+
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --white:       #FFFFFF;
+      --soft:        #F6F6F6;
+      --beige:       #E8E8E8;
+      --stone:       #ADADAD;
+      --warm-gray:   #555555;
+      --charcoal:    #111111;
+      --charcoal-2:  #222222;
+      --brass:       #B8905A;
+      --brass-dk:    #96723E;
+
+      --line:        #333333;
+      --grid:        1px solid var(--line);
+
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --r-sm: 0;
+      --r-md: 0;
+      --r-lg: 0;
+
+      --sh-card: none;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #111111; color: #fff; min-height: 100vh;
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 40px 24px; line-height: 1.6;
+      font-family: var(--font);
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    .box { max-width: 520px; }
-    .check { width: 64px; height: 64px; color: #B8905A; margin: 0 auto 26px; }
-    h1 { font-size: clamp(30px, 5.5vw, 46px); font-weight: 700; letter-spacing: -.025em; line-height: 1.12; margin-bottom: 16px; }
-    p { font-size: 17px; color: #ADADAD; margin-bottom: 34px; }
-    .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    .wrap        { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── TYPE ───────────────────────────────────────────── */
+    .eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(36px, 5.2vw, 62px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.028em;
+    }
+    p  { font-size: 17px; line-height: 1.72; color: var(--warm-gray); }
+
+    /* ─── BUTTONS ────────────────────────────────────────── */
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 15px 30px;
-      font-size: 15px; font-weight: 600; border: 2px solid; text-decoration: none;
-      transition: background .18s, color .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: var(--r-sm);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      border: 2px solid transparent;
+      transition: background .18s, border-color .18s, color .18s;
+      white-space: nowrap;
     }
-    .btn--brass { background: #B8905A; color: #fff; border-color: #B8905A; }
-    .btn--brass:hover { background: #96723E; border-color: #96723E; }
-    .btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.45); }
-    .btn--outline:hover { background: #fff; color: #111; border-color: #fff; }
+    .btn--brass {
+      background: var(--brass);
+      color: var(--white);
+      border-color: var(--brass);
+    }
+    .btn--brass:hover {
+      background: var(--brass-dk);
+      border-color: var(--brass-dk);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--charcoal);
+      border-color: var(--charcoal);
+    }
+    .btn--outline:hover {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: var(--grid);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 32px;
+    }
+    .nav__logo-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--charcoal);
+    }
+    .nav__logo-sub {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-top: 3px;
+      display: block;
+    }
+    .nav__right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav__phone {
+      text-align: right;
+    }
+    .nav__phone-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      display: block;
+    }
+    .nav__phone-num {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    /* ─── THANK YOU MAIN ─────────────────────────────────── */
+    .ty {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: var(--soft);
+      border-bottom: var(--grid);
+      padding: 96px 0;
+    }
+    .ty__inner { max-width: 640px; }
+    .ty h1 { margin-bottom: 20px; }
+    .ty p {
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .ty a.ty__phone { color: var(--charcoal); font-weight: 600; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer {
+      background: #111111;
+      padding: 64px 0 28px;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .footer__brand-name  { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .footer__tagline     { font-size: 14px; color: var(--stone); line-height: 1.65; margin-bottom: 22px; }
+    .footer__contact p, .footer__contact a { font-size: 14px; color: var(--stone); line-height: 1.85; }
+    .footer__col-head    { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--white); margin-bottom: 18px; }
+    .footer__col-links   { display: flex; flex-direction: column; gap: 11px; }
+    .footer__col-links a { font-size: 14px; color: var(--stone); transition: color .15s; }
+    .footer__col-links a:hover { color: var(--white); }
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__legal  { font-size: 12px; color: rgba(255,255,255,.28); }
+    .footer__badges { display: flex; gap: 10px; }
+    .footer__badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,.35);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 0;
+      padding: 4px 11px;
+      letter-spacing: .04em;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer__grid       { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav__phone         { display: none; }
+      .nav__inner         { gap: 12px; }
+      .nav__logo-name     { font-size: 15px; white-space: nowrap; }
+      .ty                 { padding: 64px 0; }
+      .footer__grid       { grid-template-columns: 1fr; gap: 32px; }
+      .footer__col-links a,
+      .footer__contact a  { display: inline-block; padding: 6px 0; }
+    }
+    @media (max-width: 480px) {
+      h1                  { font-size: 32px; }
+      .footer__bottom     { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─── ACCESSIBILITY ──────────────────────────────────── */
+    :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
-  <div class="box">
-    <svg class="check" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 6 12-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <h1>Thank you — message received.</h1>
-    <p>Eric will be in touch shortly, usually the same day. If it's urgent, call or text us directly any time.</p>
-    <div class="btns">
-      <a href="tel:+12693392545" class="btn btn--brass">Call (269) 339-2545</a>
-      <a href="/" class="btn btn--outline">Back to Home</a>
+
+<!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="/" aria-label="Say When Contracting — Home">
+        <div class="nav__logo-name">Say When Contracting</div>
+        <span class="nav__logo-sub">Lima, Ohio · Est. 2015</span>
+      </a>
+
+      <div class="nav__right">
+        <div class="nav__phone">
+          <span class="nav__phone-label">Call or text</span>
+          <a href="tel:+12693392545" class="nav__phone-num">(269) 339-2545</a>
+        </div>
+        <a href="/" class="btn btn--brass">Back to Home</a>
+      </div>
     </div>
   </div>
+</nav>
+
+
+<!-- ═══════════════════════════════ THANK YOU ═════════════════════════ -->
+<main class="ty">
+  <div class="wrap">
+    <div class="ty__inner">
+      <span class="eyebrow">Thank you</span>
+      <h1>We'll be in touch soon.</h1>
+      <p>Eric will review your request and reach out — usually within one business day. In the meantime, if you have questions, call or text directly at <a href="tel:+12693392545" class="ty__phone">(269) 339-2545</a>.</p>
+      <a href="/" class="btn btn--outline">← Back to Home</a>
+    </div>
+  </div>
+</main>
+
+
+<!-- ═══════════════════════════════ FOOTER ════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div>
+        <p class="footer__brand-name">Say When Contracting</p>
+        <p class="footer__tagline">Quality craftsmanship and honest service for homeowners throughout West Central Ohio. Locally owned and operated by Eric since 2015.</p>
+        <div class="footer__contact">
+          <p><a href="tel:+12693392545">(269) 339-2545</a></p>
+          <p><a href="mailto:eric@vpiinvestmentsllc.com">eric@vpiinvestmentsllc.com</a></p>
+          <p>Lima, Ohio 45801</p>
+          <p><a href="https://www.facebook.com/profile.php?id=61588240451125" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer__col-head">Services</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="/#services">Bathroom Remodeling</a></li>
+          <li><a href="/#services">Kitchen Remodeling</a></li>
+          <li><a href="/#services">Shower Remodels</a></li>
+          <li><a href="/#services">Tub-to-Shower Conversions</a></li>
+          <li><a href="/#services">Accessibility Upgrades</a></li>
+          <li><a href="/#services">Interior Renovations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-head">Service Areas</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="/#contact">Findlay, OH</a></li>
+          <li><a href="/#contact">Wapakoneta, OH</a></li>
+          <li><a href="/#contact">Bluffton, OH</a></li>
+          <li><a href="/#contact">Delphos, OH</a></li>
+          <li><a href="/#contact">St. Marys, OH</a></li>
+          <li><a href="/#contact">Elida, OH</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__col-head">Company</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="/#about">About Eric</a></li>
+          <li><a href="/#gallery">Project Gallery</a></li>
+          <li><a href="/#reviews">Customer Reviews</a></li>
+          <li><a href="/#contact">Contact Us</a></li>
+          <li><a href="/#contact">Free Estimate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__legal">© 2026 Say When Contracting · Lima, Ohio · All rights reserved</p>
+      <div class="footer__badges">
+        <span class="footer__badge">Licensed &amp; Insured</span>
+        <span class="footer__badge">Ohio Contractor</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
