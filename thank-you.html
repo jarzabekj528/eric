@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You | Say When Contracting</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style>
+    @font-face {
+      font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap;
+      src: url('/fonts/inter-latin.woff2') format('woff2');
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #111111; color: #fff; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding: 40px 24px; line-height: 1.6;
+    }
+    .box { max-width: 520px; }
+    .check { width: 64px; height: 64px; color: #B8905A; margin: 0 auto 26px; }
+    h1 { font-size: clamp(30px, 5.5vw, 46px); font-weight: 700; letter-spacing: -.025em; line-height: 1.12; margin-bottom: 16px; }
+    p { font-size: 17px; color: #ADADAD; margin-bottom: 34px; }
+    .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 15px 30px;
+      font-size: 15px; font-weight: 600; border: 2px solid; text-decoration: none;
+      transition: background .18s, color .18s;
+    }
+    .btn--brass { background: #B8905A; color: #fff; border-color: #B8905A; }
+    .btn--brass:hover { background: #96723E; border-color: #96723E; }
+    .btn--outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.45); }
+    .btn--outline:hover { background: #fff; color: #111; border-color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <svg class="check" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 6 12-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>Thank you — message received.</h1>
+    <p>Eric will be in touch shortly, usually the same day. If it's urgent, call or text us directly any time.</p>
+    <div class="btns">
+      <a href="tel:+12693392545" class="btn btn--brass">Call (269) 339-2545</a>
+      <a href="/" class="btn btn--outline">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

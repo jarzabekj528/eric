@@ -25,13 +25,13 @@
   <meta name="twitter:description" content="Trusted bathroom &amp; kitchen remodeling and accessibility upgrades across West Central Ohio. Licensed, insured, free estimates." />
   <meta name="twitter:image" content="https://saywhencontracting.com/images/hero-bathroom.jpg" />
 
-  <!-- Preload the hero image (Largest Contentful Paint element) -->
-  <link rel="preload" as="image" href="images/hero-bathroom.jpg" fetchpriority="high" />
+  <!-- Preload the hero image (Largest Contentful Paint element) — responsive WebP -->
+  <link rel="preload" as="image" href="images/hero-bathroom-800.webp"
+        imagesrcset="images/hero-bathroom-800.webp 800w, images/hero-bathroom.webp 1500w"
+        imagesizes="(max-width: 1024px) 100vw, 480px" fetchpriority="high" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Self-hosted Inter (variable woff2) — removes the render-blocking external font request -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin />
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
@@ -42,7 +42,7 @@
     "name": "Say When Contracting",
     "description": "Interior remodeling company specializing in bathroom remodeling, kitchen remodeling, shower remodels, tub-to-shower conversions, and accessibility upgrades throughout West Central Ohio.",
     "url": "https://saywhencontracting.com",
-    "telephone": "(269) 339-2545",
+    "telephone": "+1-269-339-2545",
     "email": "eric@vpiinvestmentsllc.com",
     "image": "https://saywhencontracting.com/images/hero-bathroom.jpg",
     "logo": "https://saywhencontracting.com/logo.jpg",
@@ -72,11 +72,107 @@
       "closes": "18:00"
     },
     "priceRange": "$$",
-    "knowsAbout": ["Bathroom Remodeling","Kitchen Remodeling","Shower Remodels","Tub-to-Shower Conversions","Accessibility Upgrades","Interior Renovations"]
+    "knowsAbout": ["Bathroom Remodeling","Kitchen Remodeling","Shower Remodels","Tub-to-Shower Conversions","Accessibility Upgrades","Interior Renovations"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Interior Remodeling Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom Remodeling", "areaServed": "Lima, OH" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen Remodeling", "areaServed": "Lima, OH" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Shower Remodels", "areaServed": "Lima, OH" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tub-to-Shower Conversions", "areaServed": "Lima, OH" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accessibility Upgrades", "areaServed": "Lima, OH" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Renovations", "areaServed": "Lima, OH" } }
+      ]
+    }
+  }
+</script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long will my bathroom be out of use during a remodel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most bathroom remodels take about two to three weeks from demolition to the final walkthrough, depending on the size of the project and whether we're moving plumbing or fixtures. We give you a realistic timeframe up front and stick to it. If you only have one bathroom, we plan the schedule to keep the disruption as short as possible."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle permits and inspections?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. When a project needs a permit, we pull it and coordinate any required inspections so the work is done to code. As a licensed and insured contractor, that's part of the job — you don't have to deal with the paperwork."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a typical bathroom remodel cost in the Lima, Ohio area?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every project is different, so we don't quote a one-size-fits-all number. Cost depends on the size of the space, the materials you choose, and whether layout or plumbing changes are involved. We come to your home, listen to what you want, and give you a detailed written estimate for free — with no hidden fees and no pressure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer free estimates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — every estimate is free and no-pressure. We come to your home, walk through the project with you, and follow up with a clear written estimate. You're never obligated to move forward."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you do accessibility and aging-in-place upgrades?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Grab bars, curbless and low-threshold walk-in showers, built-in shower seats, non-slip flooring, and wider doorways are some of our most-requested work. We help homeowners stay safe and comfortable in the home they love."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We're based in Lima and serve homeowners throughout Allen County and West Central Ohio, including Findlay, Wapakoneta, Bluffton, Shawnee, Elida, Delphos, St. Marys, Van Wert, and Celina."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will you keep the job site clean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We protect your floors, seal off dust, and leave your home clean at the end of every single workday. Respecting your home is something we take seriously from the first day to the last."
+        }
+      }
+    ]
   }
   </script>
 
   <style>
+    /* ─── FONT (self-hosted Inter variable) ──────────────── */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+    }
+
     /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
       --white:       #FFFFFF;
@@ -584,25 +680,6 @@
     .areas__list a:hover { color: var(--charcoal); }
     .areas__sep        { color: var(--stone); font-size: 11px; }
 
-    /* ─── FINAL CTA ──────────────────────────────────────── */
-    .cta-section { padding: 96px 0; background: #111111; }
-    .cta-section__inner { text-align: center; }
-    .cta-section h2      { color: var(--white); margin-bottom: 14px; }
-    .cta-section__sub    {
-      font-size: 18px;
-      color: var(--stone);
-      max-width: 500px;
-      margin: 0 auto 44px;
-    }
-    .cta-section__btns   {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-    .cta-section__note   { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,.35); }
-
     /* ─── FOOTER ─────────────────────────────────────────── */
     .footer {
       background: #111111;
@@ -662,6 +739,153 @@
     .mobile-cta__btn--call     { background: var(--brass); color: var(--white); }
     .mobile-cta__btn--estimate { background: var(--charcoal); color: var(--white); }
 
+    /* ─── MOBILE NAV (hamburger) ─────────────────────────── */
+    .nav__toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav__toggle svg { width: 24px; height: 24px; color: var(--charcoal); }
+    .nav__mobile {
+      display: none;
+      border-top: var(--grid);
+      background: var(--white);
+    }
+    .nav__mobile a {
+      display: block;
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--charcoal);
+      border-bottom: 1px solid var(--beige);
+    }
+    .nav__mobile a:last-child { border-bottom: none; }
+    .nav__mobile a.nav__mobile-call { color: var(--brass); font-weight: 600; }
+    body.menu-open .nav__mobile { display: block; }
+
+    /* ─── FAQ ────────────────────────────────────────────── */
+    .faq { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
+    .faq__list {
+      max-width: 820px;
+      margin: 0 auto;
+      border-top: var(--grid);
+    }
+    .faq__item { border-bottom: var(--grid); }
+    .faq__q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      text-align: left;
+      padding: 26px 4px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+    .faq__q-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--brass);
+      transition: transform .22s;
+    }
+    .faq__item[open] .faq__q-icon { transform: rotate(45deg); }
+    .faq__a {
+      padding: 0 4px 26px;
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--warm-gray);
+      max-width: 700px;
+    }
+    /* native <details> marker off */
+    .faq__item summary { list-style: none; cursor: pointer; }
+    .faq__item summary::-webkit-details-marker { display: none; }
+
+    /* ─── REVIEWS CTA CARD ───────────────────────────────── */
+    .reviews__grid--3 { grid-template-columns: repeat(3,1fr); max-width: 1100px; }
+    .rev-cta {
+      background: var(--charcoal);
+      border-right: var(--grid);
+      border-bottom: var(--grid);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .rev-cta h3 { color: var(--white); font-size: 19px; line-height: 1.35; }
+    .rev-cta p  { color: var(--stone); font-size: 14px; line-height: 1.6; }
+    .rev-cta .btn { align-self: flex-start; }
+
+    /* ─── CONTACT / FORM ─────────────────────────────────── */
+    .contact { padding: 96px 0; background: #111111; }
+    .contact__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact__intro .eyebrow { color: var(--brass); }
+    .contact__intro h2 { color: var(--white); margin-bottom: 16px; }
+    .contact__intro > p { color: var(--stone); font-size: 17px; margin-bottom: 32px; max-width: 420px; }
+    .contact__direct { display: flex; flex-direction: column; gap: 18px; margin-bottom: 8px; }
+    .contact__direct-item { display: flex; align-items: center; gap: 14px; }
+    .contact__direct-item svg { width: 20px; height: 20px; color: var(--brass); flex-shrink: 0; }
+    .contact__direct-item a, .contact__direct-item span { color: var(--white); font-size: 16px; font-weight: 500; }
+    .contact__direct-label { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); font-weight: 600; }
+
+    .form {
+      background: var(--white);
+      border: var(--grid);
+      padding: 36px;
+    }
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 7px;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 16px;
+      color: var(--charcoal);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 0;
+      padding: 13px 14px;
+      transition: border-color .15s, background .15s;
+    }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--brass);
+      background: var(--white);
+    }
+    .field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .form__submit { width: 100%; justify-content: center; margin-top: 4px; }
+    .form__note { font-size: 12px; color: var(--warm-gray); margin-top: 14px; text-align: center; }
+    .form__success {
+      display: none;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .form__success svg { width: 48px; height: 48px; color: var(--brass); margin: 0 auto 18px; }
+    .form__success h3 { font-size: 22px; margin-bottom: 8px; }
+    .form__success p { font-size: 15px; }
+    .form.is-sent .form__body { display: none; }
+    .form.is-sent .form__success { display: block; }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1024px) {
       .hero__inner        { grid-template-columns: 1fr; gap: 40px; }
@@ -674,11 +898,17 @@
     @media (max-width: 768px) {
       .nav__links         { display: none; }
       .nav__phone         { display: none; }   /* call lives in the sticky bottom bar */
-      .nav__inner         { gap: 14px; }
+      .nav__toggle        { display: flex; }
+      .nav__inner         { gap: 12px; }
       .nav__logo-name     { font-size: 15px; white-space: nowrap; }
-      .nav .btn--brass    { padding: 11px 18px; font-size: 14px; }
+      .nav .nav__right .btn--brass { padding: 11px 16px; font-size: 14px; }
       .services__grid     { grid-template-columns: 1fr; }
-      .reviews__grid      { grid-template-columns: 1fr; }
+      .reviews__grid, .reviews__grid--3 { grid-template-columns: 1fr; }
+      .contact__inner     { grid-template-columns: 1fr; gap: 36px; }
+      .contact            { padding: 64px 0; }
+      .form               { padding: 26px 22px; }
+      .form__row          { grid-template-columns: 1fr; gap: 0; }
+      .faq                { padding: 64px 0; }
       .process__steps     { grid-template-columns: 1fr 1fr; }
       .gallery__grid      { grid-template-columns: 1fr 1fr; }
       .trust-divider      { display: none; }
@@ -706,7 +936,6 @@
       .process__steps     { grid-template-columns: 1fr; }
       .gallery__grid      { grid-template-columns: 1fr; }
       h1                  { font-size: 32px; }
-      .cta-section__btns  { flex-direction: column; align-items: center; }
       .footer__bottom     { flex-direction: column; align-items: flex-start; }
     }
 
@@ -730,6 +959,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#gallery">Our Work</a></li>
         <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#about">About Eric</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -740,8 +970,24 @@
           <a href="tel:+12693392545" class="nav__phone-num">(269) 339-2545</a>
         </div>
         <a href="#contact" class="btn btn--brass">Free Estimate</a>
+        <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path class="nav__toggle-open" d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class="nav__mobile" id="mobile-menu">
+    <a href="#services">Services</a>
+    <a href="#gallery">Our Work</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#about">About Eric</a>
+    <a href="#contact">Contact &amp; Free Estimate</a>
+    <a href="tel:+12693392545" class="nav__mobile-call">Call or text (269) 339-2545</a>
   </div>
 </nav>
 
@@ -770,7 +1016,10 @@
       </div>
 
       <div class="hero__img">
-        <img src="images/hero-bathroom.jpg" alt="Completed bathroom remodel by Say When Contracting — gray vanity, walk-in shower with grab bars, and rustic accent wall in Lima, Ohio" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
+        <picture>
+          <source type="image/webp" srcset="images/hero-bathroom-800.webp 800w, images/hero-bathroom.webp 1500w" sizes="(max-width: 1024px) 100vw, 480px" />
+          <img src="images/hero-bathroom.jpg" width="1500" height="1125" alt="Completed bathroom remodel by Say When Contracting — gray vanity, walk-in shower with grab bars, and rustic accent wall in Lima, Ohio" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
+        </picture>
       </div>
     </div>
   </div>
@@ -933,7 +1182,10 @@
     <div class="why__inner">
 
       <div class="why__photo">
-        <img src="images/craftsman-waterproofing.jpg" alt="Say When Contracting craftsman applying waterproofing membrane to a shower before tiling" class="photo--process" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
+        <picture>
+          <source type="image/webp" srcset="images/craftsman-waterproofing-800.webp 800w, images/craftsman-waterproofing.webp 1500w" sizes="(max-width: 1024px) 100vw, 540px" />
+          <img src="images/craftsman-waterproofing.jpg" width="1500" height="1125" alt="Say When Contracting craftsman applying waterproofing membrane to a shower before tiling" class="photo--process" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
+        </picture>
       </div>
 
       <div class="why__content">
@@ -1016,11 +1268,17 @@
         <div class="ba__pair">
           <div class="ba__frame">
             <span class="ba__tag">Before</span>
-            <img src="images/before-1.jpg" alt="Dated, cramped bathroom before remodeling, with old fixtures and a mobility walker" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/before-1-800.webp 800w, images/before-1.webp 1500w" sizes="(max-width: 768px) 100vw, 50vw" />
+              <img src="images/before-1.jpg" width="1500" height="1125" alt="Dated, cramped bathroom before remodeling, with old fixtures and a mobility walker" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="ba__frame">
             <span class="ba__tag ba__tag--after">After</span>
-            <img src="images/after-1.jpg" alt="Remodeled accessible bathroom with rustic plank walls, barn door, and grab bars" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/after-1-800.webp 800w, images/after-1.webp 1500w" sizes="(max-width: 768px) 100vw, 50vw" />
+              <img src="images/after-1.jpg" width="1500" height="1125" alt="Remodeled accessible bathroom with rustic plank walls, barn door, and grab bars" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
         <figcaption class="ba__cap">
@@ -1033,11 +1291,17 @@
         <div class="ba__pair">
           <div class="ba__frame">
             <span class="ba__tag">Before</span>
-            <img src="images/before-2.jpg" alt="Bathroom stripped to the studs during demolition, old tub and window exposed" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/before-2-800.webp 800w, images/before-2.webp 1500w" sizes="(max-width: 768px) 100vw, 50vw" />
+              <img src="images/before-2.jpg" width="1500" height="1125" alt="Bathroom stripped to the studs during demolition, old tub and window exposed" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="ba__frame">
             <span class="ba__tag ba__tag--after">After</span>
-            <img src="images/after-2.jpg" alt="Finished bathroom with white marble tile tub surround and new wood-look flooring" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/after-2-800.webp 800w, images/after-2.webp 1500w" sizes="(max-width: 768px) 100vw, 50vw" />
+              <img src="images/after-2.jpg" width="1500" height="1125" alt="Finished bathroom with white marble tile tub surround and new wood-look flooring" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
         <figcaption class="ba__cap">
@@ -1050,11 +1314,17 @@
         <div class="ba__pair">
           <div class="ba__frame">
             <span class="ba__tag">Before</span>
-            <img src="images/before-3.jpg" alt="Old, cluttered bathroom with dated vanity and fixtures before remodeling" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/before-3-800.webp 800w, images/before-3.webp 1500w" sizes="(max-width: 768px) 100vw, 50vw" />
+              <img src="images/before-3.jpg" width="1500" height="1125" alt="Old, cluttered bathroom with dated vanity and fixtures before remodeling" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="ba__frame">
             <span class="ba__tag ba__tag--after">After</span>
-            <img src="images/after-3.jpg" alt="Updated bathroom with new white vanity, rustic accent wall, and walk-in shower" loading="lazy" />
+            <picture>
+              <source type="image/webp" srcset="images/after-3-800.webp 800w, images/after-3.webp 1500w" sizes="(max-width: 768px) 100vw, 50vw" />
+              <img src="images/after-3.jpg" width="1500" height="1125" alt="Updated bathroom with new white vanity, rustic accent wall, and walk-in shower" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
         <figcaption class="ba__cap">
@@ -1068,13 +1338,22 @@
     <p class="gallery__detail-head">A Few Finished Details</p>
     <div class="gallery__grid" role="list">
       <div class="g-item" role="listitem">
-        <img src="images/detail-1.jpg" alt="Walk-in shower with grab bar and rustic plank accent wall" loading="lazy" />
+        <picture>
+          <source type="image/webp" srcset="images/detail-1-800.webp 800w, images/detail-1.webp 1500w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" />
+          <img src="images/detail-1.jpg" width="1500" height="1125" alt="Walk-in shower with grab bar and rustic plank accent wall" loading="lazy" decoding="async" />
+        </picture>
       </div>
       <div class="g-item" role="listitem">
-        <img src="images/detail-2.jpg" alt="Accessible shower with built-in seat and grab bar" loading="lazy" />
+        <picture>
+          <source type="image/webp" srcset="images/detail-2-800.webp 800w, images/detail-2.webp 1500w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" />
+          <img src="images/detail-2.jpg" width="1500" height="1125" alt="Accessible shower with built-in seat and grab bar" loading="lazy" decoding="async" />
+        </picture>
       </div>
       <div class="g-item" role="listitem">
-        <img src="images/detail-3.jpg" alt="New vanity and mirror against a rustic gray plank wall" loading="lazy" />
+        <picture>
+          <source type="image/webp" srcset="images/detail-3-800.webp 800w, images/detail-3.webp 1500w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" />
+          <img src="images/detail-3.jpg" width="1500" height="1125" alt="New vanity and mirror against a rustic gray plank wall" loading="lazy" decoding="async" />
+        </picture>
       </div>
     </div>
 
@@ -1093,7 +1372,7 @@
       <h2 id="rev-h">Trusted by Families Throughout West Central Ohio</h2>
     </div>
 
-    <div class="reviews__grid">
+    <div class="reviews__grid reviews__grid--3">
 
       <article class="rev-card">
         <div class="rev-card__stars" aria-label="5 out of 5 stars">
@@ -1120,6 +1399,19 @@
         <p class="rev-card__name">Damon Baldridge</p>
         <p class="rev-card__loc">via Facebook</p>
       </article>
+
+      <div class="rev-cta">
+        <div class="rev-card__stars" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 10.8 4.2 13l.7-4.3L1.8 5.5l4.3-.6z"/></svg>
+        </div>
+        <h3>Worked with us? We'd love your review.</h3>
+        <p>Reviews from real Lima-area homeowners mean the world to a locally owned business — and they help your neighbors find us. It only takes a minute.</p>
+        <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" class="btn btn--brass" target="_blank" rel="noopener" data-review-link>Leave a Google Review</a>
+      </div>
 
     </div>
   </div>
@@ -1161,13 +1453,88 @@
 </section>
 
 
+<!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">Good Questions</span>
+      <h2 id="faq-h">Frequently Asked Questions</h2>
+      <p>The things homeowners ask us most, answered honestly — so you know what to expect before you ever pick up the phone.</p>
+    </div>
+
+    <div class="faq__list">
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          How long will my bathroom be out of use during a remodel?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">Most bathroom remodels take about two to three weeks from demolition to the final walkthrough, depending on the size of the project and whether we're moving plumbing or fixtures. We give you a realistic timeframe up front and stick to it. If you only have one bathroom, we plan the schedule to keep the disruption as short as possible.</div>
+      </details>
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          Do you handle permits and inspections?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">Yes. When a project needs a permit, we pull it and coordinate any required inspections so the work is done to code. As a licensed and insured contractor, that's part of the job — you don't have to deal with the paperwork.</div>
+      </details>
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          What does a typical bathroom remodel cost?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">Every project is different, so we don't quote a one-size-fits-all number. Cost depends on the size of the space, the materials you choose, and whether layout or plumbing changes are involved. We come to your home, listen to what you want, and give you a detailed written estimate for free — with no hidden fees and no pressure.</div>
+      </details>
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          Do you offer free estimates?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">Yes — every estimate is free and no-pressure. We come to your home, walk through the project with you, and follow up with a clear written estimate. You're never obligated to move forward.</div>
+      </details>
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          Do you do accessibility and aging-in-place upgrades?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">Absolutely. Grab bars, curbless and low-threshold walk-in showers, built-in shower seats, non-slip flooring, and wider doorways are some of our most-requested work. We help homeowners stay safe and comfortable in the home they love.</div>
+      </details>
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          What areas do you serve?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">We're based in Lima and serve homeowners throughout Allen County and West Central Ohio, including Findlay, Wapakoneta, Bluffton, Shawnee, Elida, Delphos, St. Marys, Van Wert, and Celina.</div>
+      </details>
+
+      <details class="faq__item" name="faq">
+        <summary class="faq__q">
+          Will you keep the job site clean?
+          <svg class="faq__q-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq__a">Yes. We protect your floors, seal off dust, and leave your home clean at the end of every single workday. Respecting your home is something we take seriously from the first day to the last.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ═══════════════════════════════ ABOUT ERIC ════════════════════════ -->
 <section class="about" id="about" aria-labelledby="about-h">
   <div class="wrap">
     <div class="about__inner">
 
       <div class="about__photo">
-        <img src="images/eric-working.jpg" alt="Eric, owner of Say When Contracting, installing a new tub on a job site" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
+        <picture>
+          <source type="image/webp" srcset="images/eric-working-800.webp 800w, images/eric-working.webp 1500w" sizes="(max-width: 1024px) 100vw, 360px" />
+          <img src="images/eric-working.jpg" width="1500" height="1125" alt="Eric, owner of Say When Contracting, installing a new tub on a job site" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
+        </picture>
       </div>
 
       <div class="about__content">
@@ -1216,25 +1583,107 @@
 </div>
 
 
-<!-- ═══════════════════════════════ FINAL CTA ═════════════════════════ -->
-<section class="cta-section" id="contact" aria-labelledby="cta-h">
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════ -->
+<section class="contact" id="contact" aria-labelledby="cta-h">
   <div class="wrap">
-    <div class="cta-section__inner">
-      <span class="eyebrow">Get Started</span>
-      <h2 id="cta-h">Ready To Start Your Remodel?</h2>
-      <p class="cta-section__sub">
-        Call or text Eric for a free, no-pressure estimate. We'll come to your home, listen to what you have in mind, and give you an honest answer.
-      </p>
-      <div class="cta-section__btns">
-        <a href="tel:+12693392545" class="btn btn--brass">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M14.2 11.1l-2.8-.4-1.3 1.3a10.5 10.5 0 01-5-5l1.3-1.3-.4-2.8H3.2C3 8.4 7.6 13 14.2 12.7v-1.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-          </svg>
-          Call (269) 339-2545
-        </a>
-        <a href="mailto:eric@vpiinvestmentsllc.com" class="btn btn--outline-white">Email Us</a>
+    <div class="contact__inner">
+
+      <div class="contact__intro">
+        <span class="eyebrow">Get Started</span>
+        <h2 id="cta-h">Ready To Start Your Remodel?</h2>
+        <p>Tell us a little about your project and Eric will get back to you — usually the same day — with honest answers and a free estimate. No pressure, ever.</p>
+
+        <div class="contact__direct">
+          <div class="contact__direct-item">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.2 11.1l-2.8-.4-1.3 1.3a10.5 10.5 0 01-5-5l1.3-1.3-.4-2.8H3.2C3 8.4 7.6 13 14.2 12.7v-1.6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <div>
+              <span class="contact__direct-label">Call or text</span>
+              <a href="tel:+12693392545">(269) 339-2545</a>
+            </div>
+          </div>
+          <div class="contact__direct-item">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 4l5 4 5-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <span class="contact__direct-label">Email</span>
+              <a href="mailto:eric@vpiinvestmentsllc.com">eric@vpiinvestmentsllc.com</a>
+            </div>
+          </div>
+          <div class="contact__direct-item">
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="7" r="2.2" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.5c3 0 5.5 2.3 5.5 5.3 0 3.5-5.5 8.2-5.5 8.2S2.5 10.3 2.5 6.8C2.5 3.8 5 1.5 8 1.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            <div>
+              <span class="contact__direct-label">Serving</span>
+              <span>Lima &amp; West Central Ohio</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="cta-section__note">Free estimates · Licensed &amp; insured · Locally owned · No pressure, ever</p>
+
+      <form class="form" id="estimate-form"
+            action="https://formsubmit.co/eric@vpiinvestmentsllc.com"
+            method="POST">
+        <div class="form__body">
+          <input type="hidden" name="_subject" value="New Free Estimate Request — saywhencontracting.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://saywhencontracting.com/thank-you.html" />
+          <!-- honeypot: bots fill this, humans don't see it -->
+          <div class="field--hp" aria-hidden="true">
+            <label for="company">Company</label>
+            <input type="text" name="_honey" id="company" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input type="text" id="f-name" name="Name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="Phone" required autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="f-email">Email <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--warm-gray);">(optional)</span></label>
+              <input type="email" id="f-email" name="Email" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="f-city">City / Town</label>
+              <input type="text" id="f-city" name="City" autocomplete="address-level2" placeholder="e.g. Lima" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-service">What can we help with?</label>
+            <select id="f-service" name="Project Type">
+              <option value="" selected>Select a project…</option>
+              <option>Bathroom Remodel</option>
+              <option>Kitchen Remodel</option>
+              <option>Shower Remodel</option>
+              <option>Tub-to-Shower Conversion</option>
+              <option>Accessibility / Aging-in-Place Upgrade</option>
+              <option>Other Interior Renovation</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-details">Tell us about your project</label>
+            <textarea id="f-details" name="Project Details" required placeholder="A few details about what you're hoping to do, your timeline, anything we should know…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--brass form__submit">Request My Free Estimate</button>
+          <p class="form__note">Free estimates · Licensed &amp; insured · Locally owned · No pressure, ever</p>
+        </div>
+
+        <div class="form__success" role="status" aria-live="polite">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 6 12-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Thank you — message received.</h3>
+          <p>Eric will be in touch shortly. If it's urgent, call or text <a href="tel:+12693392545" style="color:var(--brass);font-weight:600;">(269) 339-2545</a>.</p>
+        </div>
+      </form>
+
     </div>
   </div>
 </section>
@@ -1314,6 +1763,59 @@
   </a>
   <a href="#contact" class="mobile-cta__btn mobile-cta__btn--estimate">Free Estimate</a>
 </div>
+
+<script>
+  /* ── Mobile menu toggle ── */
+  (function () {
+    var toggle = document.querySelector('.nav__toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        var open = document.body.classList.toggle('menu-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      // close menu when a link is tapped
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          document.body.classList.remove('menu-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open menu');
+        });
+      });
+    }
+  })();
+
+  /* ── Estimate form: progressive enhancement (AJAX, inline success) ── */
+  (function () {
+    var form = document.getElementById('estimate-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('.form__submit');
+      var original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      var action = form.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      fetch(action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function () {
+        form.classList.add('is-sent');
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        // network/AJAX failure → fall back to a normal submit
+        btn.disabled = false;
+        btn.textContent = original;
+        form.submit();
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
