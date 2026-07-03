@@ -17,7 +17,15 @@
 /logo.jpg
   Cache-Control: public, max-age=31536000, immutable
 
-/favicon.svg
+/logo-wordmark.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicons rarely change; long cache is fine
+/favicon-16.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon-32.png
+  Cache-Control: public, max-age=31536000, immutable
+/apple-touch-icon.png
   Cache-Control: public, max-age=31536000, immutable
 
 # Always revalidate HTML so content updates show immediately

@@ -10,8 +10,9 @@
   <link rel="canonical" href="https://www.saywhencontracting.com/" />
 
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/logo.jpg" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website" />
@@ -321,11 +322,13 @@
       height: 72px;
       gap: 32px;
     }
-    .nav__logo-name {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -.02em;
-      color: var(--charcoal);
+    .nav__brand { display: inline-block; }
+    .nav__logo-img {
+      display: block;
+      height: 42px;
+      width: auto;
+      border-radius: 8px;
+      background: #000;
     }
     .nav__logo-sub {
       font-size: 10px;
@@ -919,7 +922,7 @@
       .nav__phone         { display: none; }   /* call lives in the sticky bottom bar */
       .nav__toggle        { display: flex; }
       .nav__inner         { gap: 12px; }
-      .nav__logo-name     { font-size: 15px; white-space: nowrap; }
+      .nav__logo-img      { height: 34px; }
       .nav .nav__right .btn--brass { padding: 11px 16px; font-size: 14px; }
       .services__grid     { grid-template-columns: 1fr; }
       .reviews__grid, .reviews__grid--3 { grid-template-columns: 1fr; }
@@ -969,8 +972,9 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="wrap">
     <div class="nav__inner">
-      <a href="/" aria-label="Say When Contracting — Home">
-        <div class="nav__logo-name">Say When Contracting</div>
+      <a href="/" class="nav__brand" aria-label="Say When Contracting — Home">
+        <img src="/logo-wordmark.webp" alt="Say When Contracting"
+             class="nav__logo-img" width="1780" height="760" />
         <span class="nav__logo-sub">Lima, Ohio · Est. 2015</span>
       </a>
 
