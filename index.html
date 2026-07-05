@@ -604,38 +604,60 @@
     .rev-card__name  { font-size: 14px; font-weight: 600; color: var(--charcoal); }
     .rev-card__loc   { font-size: 13px; color: var(--warm-gray); margin-top: 2px; }
 
-    /* ─── PROCESS ────────────────────────────────────────── */
+    /* ─── PROCESS / ROADMAP ──────────────────────────────── */
     .process { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
-    .process__steps {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 0;
+    .roadmap {
       margin-top: 60px;
       border-top: var(--grid);
       border-left: var(--grid);
     }
-    .proc-step {
-      text-align: left;
-      padding: 36px 28px;
+    .roadmap__track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .roadmap__step {
+      padding: 32px 24px 36px;
       border-right: var(--grid);
       border-bottom: var(--grid);
+      position: relative;
     }
-    .proc-step__num {
-      width: 48px;
-      height: 48px;
-      border: var(--grid);
-      background: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 0 22px;
-      font-size: 14px;
+    .roadmap__step::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 24px;
+      width: 12px;
+      height: 12px;
+      background: var(--brass);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 1px var(--brass);
+    }
+    .roadmap__week {
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       color: var(--brass);
-      letter-spacing: .04em;
+      margin: 0 0 14px 22px;
     }
-    .proc-step h3   { font-size: 16px; margin-bottom: 8px; }
-    .proc-step p    { font-size: 14px; line-height: 1.65; }
+    .roadmap__title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      padding-left: 22px;
+    }
+    .roadmap__desc {
+      font-size: 14px;
+      color: var(--warm-gray);
+      line-height: 1.65;
+      padding-left: 22px;
+    }
+    .roadmap__note {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--warm-gray);
+    }
 
     /* ─── ABOUT ERIC ─────────────────────────────────────── */
     .about { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
@@ -890,15 +912,103 @@
     .form.is-sent .form__body { display: none; }
     .form.is-sent .form__success { display: block; }
 
-    /* Google Maps embed — local relevance signal, blueprint-framed */
-    .map-wrap {
-      max-width: 640px;
-      margin: 44px auto 0;
-      aspect-ratio: 16 / 9;
-      border: var(--grid);
-      overflow: hidden;
+    /* ─── PROJECT STARTER QUIZ ───────────────────────────── */
+    .quiz__header {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--beige);
     }
-    .map-wrap iframe { display: block; width: 100%; height: 100%; }
+    .quiz__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 14px;
+    }
+    .quiz__progress {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .quiz__dot {
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--charcoal);
+      background: transparent;
+      transition: background .2s, border-color .2s;
+    }
+    .quiz__dot.is-active { background: var(--charcoal); }
+    .quiz__dot.is-current { background: var(--brass); border-color: var(--brass); }
+    .quiz__step-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--warm-gray);
+    }
+    .quiz-step[hidden] { display: none; }
+    .quiz__prompt {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--charcoal);
+      margin-bottom: 22px;
+      text-align: center;
+    }
+    .quiz__choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quiz__choice {
+      display: block;
+      width: 100%;
+      padding: 22px 20px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--white);
+      background: var(--charcoal);
+      border: 3px solid var(--charcoal);
+      text-align: center;
+      transition: background .18s, border-color .18s, transform .12s;
+    }
+    .quiz__choice:hover,
+    .quiz__choice:focus-visible {
+      background: var(--brass);
+      border-color: var(--brass-dk);
+      outline: none;
+    }
+    .quiz__choice.is-selected {
+      background: var(--brass);
+      border-color: var(--brass-dk);
+    }
+    .quiz-step .field input#f-zip {
+      font-size: 24px;
+      padding: 18px 16px;
+      text-align: center;
+      letter-spacing: .06em;
+    }
+    .quiz-step .field input#f-name,
+    .quiz-step .field input#f-phone {
+      font-size: 18px;
+      padding: 16px 14px;
+    }
+    .quiz__next,
+    .quiz .form__submit { width: 100%; justify-content: center; margin-top: 8px; }
+    .quiz__back {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--warm-gray);
+      text-align: center;
+    }
+    .quiz__back:hover { color: var(--charcoal); }
+    .quiz__back[hidden] { display: none; }
 
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1024px) {
@@ -923,7 +1033,8 @@
       .form               { padding: 26px 22px; }
       .form__row          { grid-template-columns: 1fr; gap: 0; }
       .faq                { padding: 64px 0; }
-      .process__steps     { grid-template-columns: 1fr 1fr; }
+      .process            { padding: 64px 0; }
+      .roadmap__track     { grid-template-columns: 1fr 1fr; }
       .gallery__grid      { grid-template-columns: 1fr 1fr; }
       .trust-divider      { display: none; }
       .trust-bar__inner   { justify-content: center; gap: 20px; }
@@ -947,7 +1058,7 @@
     }
     @media (max-width: 480px) {
       .hero__actions      { flex-direction: column; align-items: flex-start; }
-      .process__steps     { grid-template-columns: 1fr; }
+      .roadmap__track     { grid-template-columns: 1fr; }
       .gallery__grid      { grid-template-columns: 1fr; }
       h1                  { font-size: 32px; }
       .footer__bottom     { flex-direction: column; align-items: flex-start; }
@@ -1435,32 +1546,35 @@
 <section class="process" aria-labelledby="proc-h">
   <div class="wrap">
     <div class="sec-head sec-head--center">
-      <span class="eyebrow">How It Works</span>
-      <h2 id="proc-h">A Simple, Stress-Free Process</h2>
-      <p>We've worked hard to make remodeling as easy as possible for the people who hire us.</p>
+      <span class="eyebrow">What to Expect</span>
+      <h2 id="proc-h">Your 4-Week Remodel Roadmap</h2>
+      <p>A clear week-by-week plan so you always know what's happening — and when you'll have your bathroom back.</p>
     </div>
 
-    <div class="process__steps">
-      <div class="proc-step">
-        <div class="proc-step__num" aria-hidden="true">01</div>
-        <h3>Free Consultation</h3>
-        <p>We come to your home, listen to what you want, and walk through the project together with no pressure.</p>
+    <div class="roadmap">
+      <div class="roadmap__track" role="list">
+        <div class="roadmap__step" role="listitem">
+          <p class="roadmap__week">Week 1</p>
+          <h3 class="roadmap__title">Design &amp; Material Selection</h3>
+          <p class="roadmap__desc">We finalize your layout, fixtures, and finishes together — before a single tool comes out.</p>
+        </div>
+        <div class="roadmap__step" role="listitem">
+          <p class="roadmap__week">Week 2</p>
+          <h3 class="roadmap__title">Dust-Sealed Demolition</h3>
+          <p class="roadmap__desc">The old space comes out carefully. We seal off the work area to protect the rest of your home.</p>
+        </div>
+        <div class="roadmap__step" role="listitem">
+          <p class="roadmap__week">Week 3</p>
+          <h3 class="roadmap__title">Custom Build &amp; Tile</h3>
+          <p class="roadmap__desc">Framing, plumbing, waterproofing, and tile — the craftsmanship that makes your remodel last.</p>
+        </div>
+        <div class="roadmap__step" role="listitem">
+          <p class="roadmap__week">Week 4</p>
+          <h3 class="roadmap__title">Final Walkthrough &amp; Handover</h3>
+          <p class="roadmap__desc">We walk through every detail together. You're fully satisfied before we consider the job done.</p>
+        </div>
       </div>
-      <div class="proc-step">
-        <div class="proc-step__num" aria-hidden="true">02</div>
-        <h3>Clear Estimate</h3>
-        <p>You receive a detailed written estimate. No hidden fees, no vague numbers — just an honest answer.</p>
-      </div>
-      <div class="proc-step">
-        <div class="proc-step__num" aria-hidden="true">03</div>
-        <h3>Skilled Construction</h3>
-        <p>Our craftsmen get to work. We keep you informed at every step and respect your home throughout.</p>
-      </div>
-      <div class="proc-step">
-        <div class="proc-step__num" aria-hidden="true">04</div>
-        <h3>Enjoy Your Home</h3>
-        <p>We do a final walkthrough together. You're fully satisfied before we ever consider the job done.</p>
-      </div>
+      <p class="roadmap__note">Typical bathroom remodel timeline · Your schedule may vary based on scope and materials</p>
     </div>
   </div>
 </section>
@@ -1604,7 +1718,7 @@
       <div class="contact__intro">
         <span class="eyebrow">Get Started</span>
         <h2 id="cta-h">Ready To Start Your Remodel?</h2>
-        <p>Tell us a little about your project and Eric will get back to you — usually the same day — with honest answers and a free estimate. No pressure, ever.</p>
+        <p>Answer three quick questions — it takes under a minute. Eric will get back to you, usually the same day, with honest answers and a free estimate. No pressure, ever.</p>
 
         <div class="contact__direct">
           <div class="contact__direct-item">
@@ -1631,7 +1745,7 @@
         </div>
       </div>
 
-      <form class="form" id="estimate-form"
+      <form class="form quiz" id="estimate-form"
             action="https://formsubmit.co/eric@vpiinvestmentsllc.com"
             method="POST">
         <div class="form__body">
@@ -1639,54 +1753,55 @@
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://www.saywhencontracting.com/thank-you.html" />
+          <input type="hidden" name="Project Type" id="quiz-project-type" value="" />
           <!-- honeypot: bots fill this, humans don't see it -->
           <div class="field--hp" aria-hidden="true">
             <label for="company">Company</label>
             <input type="text" name="_honey" id="company" tabindex="-1" autocomplete="off" />
           </div>
 
-          <div class="form__row">
+          <div class="quiz__header">
+            <p class="quiz__eyebrow">Project Starter</p>
+            <div class="quiz__progress" aria-hidden="true">
+              <span class="quiz__dot is-active is-current"></span>
+              <span class="quiz__dot"></span>
+              <span class="quiz__dot"></span>
+            </div>
+            <p class="quiz__step-label">Step <span id="quiz-step-num">1</span> of 3</p>
+          </div>
+
+          <div class="quiz-step is-active" data-step="1">
+            <h3 class="quiz__prompt">What kind of project are you planning?</h3>
+            <div class="quiz__choices">
+              <button type="button" class="quiz__choice" data-value="Bathroom Remodel">Bathroom</button>
+              <button type="button" class="quiz__choice" data-value="Kitchen Remodel">Kitchen</button>
+              <button type="button" class="quiz__choice" data-value="Shower Conversion">Shower Conversion</button>
+            </div>
+          </div>
+
+          <div class="quiz-step" data-step="2" hidden>
+            <h3 class="quiz__prompt">Great! What zip code is the project in?</h3>
             <div class="field">
-              <label for="f-name">Name</label>
+              <label for="f-zip">Zip code</label>
+              <input type="text" id="f-zip" name="Zip Code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required placeholder="45801" />
+            </div>
+            <button type="button" class="btn btn--brass quiz__next">Continue</button>
+          </div>
+
+          <div class="quiz-step" data-step="3" hidden>
+            <h3 class="quiz__prompt">Where should Eric send your free estimate?</h3>
+            <div class="field">
+              <label for="f-name">Your name</label>
               <input type="text" id="f-name" name="Name" required autocomplete="name" />
             </div>
             <div class="field">
               <label for="f-phone">Phone</label>
-              <input type="tel" id="f-phone" name="Phone" required autocomplete="tel" />
+              <input type="tel" id="f-phone" name="Phone" required autocomplete="tel" inputmode="tel" />
             </div>
+            <button type="submit" class="btn btn--brass form__submit">Request My Free Estimate</button>
           </div>
 
-          <div class="form__row">
-            <div class="field">
-              <label for="f-email">Email <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--warm-gray);">(optional)</span></label>
-              <input type="email" id="f-email" name="Email" autocomplete="email" />
-            </div>
-            <div class="field">
-              <label for="f-city">City / Town</label>
-              <input type="text" id="f-city" name="City" autocomplete="address-level2" placeholder="e.g. Lima" />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="f-service">What can we help with?</label>
-            <select id="f-service" name="Project Type">
-              <option value="" selected>Select a project…</option>
-              <option>Bathroom Remodel</option>
-              <option>Kitchen Remodel</option>
-              <option>Shower Remodel</option>
-              <option>Tub-to-Shower Conversion</option>
-              <option>Accessibility / Aging-in-Place Upgrade</option>
-              <option>Other Interior Renovation</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="f-details">Tell us about your project</label>
-            <textarea id="f-details" name="Project Details" required placeholder="A few details about what you're hoping to do, your timeline, anything we should know…"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn--brass form__submit">Request My Free Estimate</button>
+          <button type="button" class="quiz__back" hidden>← Back</button>
           <p class="form__note">Free estimates · Licensed &amp; insured · Locally owned · No pressure, ever</p>
         </div>
 
@@ -1697,17 +1812,6 @@
         </div>
       </form>
 
-    </div>
-
-    <div class="map-wrap">
-      <iframe
-        src="https://maps.google.com/maps?q=Lima,+Ohio+45801&output=embed"
-        width="100%" height="100%"
-        style="border: 0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Say When Contracting — Lima, Ohio"></iframe>
     </div>
   </div>
 </section>
@@ -1810,12 +1914,81 @@
     }
   })();
 
-  /* ── Estimate form: progressive enhancement (AJAX, inline success) ── */
+  /* ── Project Starter quiz ── */
   (function () {
     var form = document.getElementById('estimate-form');
     if (!form) return;
+
+    var steps = form.querySelectorAll('.quiz-step');
+    var backBtn = form.querySelector('.quiz__back');
+    var stepNum = document.getElementById('quiz-step-num');
+    var dots = form.querySelectorAll('.quiz__dot');
+    var projectInput = document.getElementById('quiz-project-type');
+    var current = 1;
+
+    function showStep(n) {
+      current = n;
+      steps.forEach(function (step) {
+        var num = parseInt(step.getAttribute('data-step'), 10);
+        step.hidden = num !== n;
+        step.classList.toggle('is-active', num === n);
+      });
+      if (stepNum) stepNum.textContent = String(n);
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i < n);
+        dot.classList.toggle('is-current', i === n - 1);
+      });
+      if (backBtn) backBtn.hidden = n === 1;
+      if (n > 1) {
+        var active = form.querySelector('.quiz-step[data-step="' + n + '"]');
+        var focusEl = active && active.querySelector('input, button.quiz__next, .form__submit');
+        if (focusEl) focusEl.focus();
+      }
+    }
+
+    form.querySelectorAll('.quiz__choice').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        form.querySelectorAll('.quiz__choice').forEach(function (choice) {
+          choice.classList.remove('is-selected');
+        });
+        btn.classList.add('is-selected');
+        if (projectInput) projectInput.value = btn.getAttribute('data-value') || '';
+        window.setTimeout(function () { showStep(2); }, 180);
+      });
+    });
+
+    var nextBtn = form.querySelector('.quiz__next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        var zip = form.querySelector('#f-zip');
+        if (zip && zip.checkValidity()) showStep(3);
+        else if (zip) zip.reportValidity();
+      });
+    }
+
+    if (backBtn) {
+      backBtn.addEventListener('click', function () {
+        if (current > 1) showStep(current - 1);
+      });
+    }
+
+    var zipInput = form.querySelector('#f-zip');
+    if (zipInput) {
+      zipInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (zipInput.checkValidity()) showStep(3);
+          else zipInput.reportValidity();
+        }
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!projectInput || !projectInput.value) {
+        showStep(1);
+        return;
+      }
       var btn = form.querySelector('.form__submit');
       var original = btn.textContent;
       btn.disabled = true;
@@ -1832,7 +2005,6 @@
         form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       })
       .catch(function () {
-        // network/AJAX failure → fall back to a normal submit
         btn.disabled = false;
         btn.textContent = original;
         form.submit();
