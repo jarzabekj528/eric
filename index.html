@@ -321,20 +321,15 @@
       height: 72px;
       gap: 32px;
     }
-    .nav__logo-name {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -.02em;
-      color: var(--charcoal);
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
     }
-    .nav__logo-sub {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-      color: var(--warm-gray);
-      margin-top: 3px;
+    .nav__logo img {
       display: block;
+      height: 44px;
+      width: auto;
     }
     .nav__links {
       display: flex;
@@ -919,7 +914,7 @@
       .nav__phone         { display: none; }   /* call lives in the sticky bottom bar */
       .nav__toggle        { display: flex; }
       .nav__inner         { gap: 12px; }
-      .nav__logo-name     { font-size: 15px; white-space: nowrap; }
+      .nav__logo img      { height: 36px; }
       .nav .nav__right .btn--brass { padding: 11px 16px; font-size: 14px; }
       .services__grid     { grid-template-columns: 1fr; }
       .reviews__grid, .reviews__grid--3 { grid-template-columns: 1fr; }
@@ -969,9 +964,8 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="wrap">
     <div class="nav__inner">
-      <a href="/" aria-label="Say When Contracting — Home">
-        <div class="nav__logo-name">Say When Contracting</div>
-        <span class="nav__logo-sub">Lima, Ohio · Est. 2015</span>
+      <a href="/" class="nav__logo" aria-label="Say When Contracting — Home">
+        <img src="/images/logo-nav.jpg" alt="Say When Contracting" width="885" height="297" />
       </a>
 
       <ul class="nav__links" role="list">
