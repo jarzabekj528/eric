@@ -902,7 +902,7 @@
       border-color: var(--brass);
       background: var(--white);
     }
-    .field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .field--hp { display: none; }
     .field__optional {
       text-transform: none;
       font-weight: 400;
@@ -1788,10 +1788,11 @@
             method="POST">
         <div class="form__body">
           <input type="hidden" name="Project Type" id="quiz-project-type" value="" />
-          <!-- honeypot: bots fill this, humans don't see it -->
+          <!-- honeypot: bots fill this, humans don't see it. display:none (not off-screen
+               positioning) so browser/password-manager autofill won't populate it. -->
           <div class="field--hp" aria-hidden="true">
-            <label for="company">Company</label>
-            <input type="text" name="_honey" id="company" tabindex="-1" autocomplete="off" />
+            <label for="hp-field">Leave this field blank</label>
+            <input type="text" name="_honey" id="hp-field" tabindex="-1" autocomplete="off" />
           </div>
 
           <div class="quiz__header">

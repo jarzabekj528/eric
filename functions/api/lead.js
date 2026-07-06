@@ -25,6 +25,7 @@ export async function onRequestPost(context) {
 
   // Honeypot: silently drop bot submissions without hitting the GHL API.
   if (data._honey) {
+    console.log('Honeypot triggered, skipping GHL', { honeyValue: data._honey });
     return jsonResponse({ ok: true });
   }
 
