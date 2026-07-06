@@ -921,6 +921,17 @@
     .form__success p { font-size: 15px; }
     .form.is-sent .form__body { display: none; }
     .form.is-sent .form__success { display: block; }
+    .form__error {
+      display: none;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--charcoal);
+    }
+    .form__error a { color: var(--brass); font-weight: 600; }
+    .form.has-error .form__error { display: block; }
 
     /* ─── PROJECT STARTER QUIZ ───────────────────────────── */
     .quiz__header {
@@ -1773,13 +1784,9 @@
       </div>
 
       <form class="form quiz" id="estimate-form"
-            action="https://formsubmit.co/eric@vpiinvestmentsllc.com"
+            action="/api/lead"
             method="POST">
         <div class="form__body">
-          <input type="hidden" name="_subject" value="New Free Estimate Request — saywhencontracting.com" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.saywhencontracting.com/thank-you.html" />
           <input type="hidden" name="Project Type" id="quiz-project-type" value="" />
           <!-- honeypot: bots fill this, humans don't see it -->
           <div class="field--hp" aria-hidden="true">
@@ -1808,7 +1815,7 @@
             <div class="quiz__other" id="quiz-other" hidden>
               <div class="field">
                 <label for="f-other">Tell us briefly</label>
-                <input type="text" id="f-other" name="Project Details" required placeholder="e.g. Basement remodel" />
+                <input type="text" id="f-other" name="Project Details" placeholder="e.g. Basement remodel" />
               </div>
               <button type="button" class="btn btn--brass quiz__next quiz__other-next">Continue</button>
             </div>
@@ -1838,6 +1845,10 @@
               <input type="email" id="f-email" name="Email" autocomplete="email" placeholder="you@example.com" />
             </div>
             <button type="submit" class="btn btn--brass form__submit">Request My Free Estimate</button>
+            <p class="form__error" role="alert">
+              Something went wrong sending your request. Please call or text
+              <a href="tel:+12693392545">(269) 339-2545</a> and we'll get you taken care of.
+            </p>
           </div>
 
           <button type="button" class="quiz__back" hidden>← Back</button>
@@ -2002,10 +2013,12 @@
             otherWrap.hidden = false;
             window.setTimeout(function () { if (otherInput) otherInput.focus(); }, 180);
           }
+          if (otherInput) otherInput.required = true;
           return;
         }
 
         if (otherWrap) otherWrap.hidden = true;
+        if (otherInput) { otherInput.required = false; otherInput.value = ''; }
         window.setTimeout(function () { showStep(2); }, 180);
       });
     });
@@ -2064,21 +2077,27 @@
       var original = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      var action = form.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
-      fetch(action, {
+      form.classList.remove('has-error');
+      fetch(form.getAttribute('action'), {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
         body: new FormData(form)
       })
-      .then(function (r) { return r.json(); })
-      .then(function () {
-        form.classList.add('is-sent');
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      .then(function (r) { return r.json().then(function (data) { return { ok: r.ok && data.ok, data: data }; }); })
+      .then(function (result) {
+        btn.disabled = false;
+        btn.textContent = original;
+        if (result.ok) {
+          form.classList.add('is-sent');
+          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          form.classList.add('has-error');
+        }
       })
       .catch(function () {
         btn.disabled = false;
         btn.textContent = original;
-        form.submit();
+        form.classList.add('has-error');
       });
     });
   })();
