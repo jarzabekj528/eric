@@ -903,6 +903,12 @@
       background: var(--white);
     }
     .field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .field__optional {
+      text-transform: none;
+      font-weight: 400;
+      letter-spacing: 0;
+      color: var(--stone);
+    }
     .form__submit { width: 100%; justify-content: center; margin-top: 4px; }
     .form__note { font-size: 12px; color: var(--warm-gray); margin-top: 14px; text-align: center; }
     .form__success {
@@ -1013,6 +1019,8 @@
       text-align: center;
       letter-spacing: .04em;
     }
+    .quiz__other { margin-top: 14px; }
+    .quiz__other[hidden] { display: none; }
     .quiz__next,
     .quiz .form__submit { width: 100%; justify-content: center; margin-top: 6px; }
     .quiz__back {
@@ -1795,6 +1803,14 @@
               <button type="button" class="quiz__choice" data-value="Bathroom Remodel">Bathroom</button>
               <button type="button" class="quiz__choice" data-value="Kitchen Remodel">Kitchen</button>
               <button type="button" class="quiz__choice" data-value="Shower Conversion">Shower Conversion</button>
+              <button type="button" class="quiz__choice" data-value="Other">Other</button>
+            </div>
+            <div class="quiz__other" id="quiz-other" hidden>
+              <div class="field">
+                <label for="f-other">Tell us briefly</label>
+                <input type="text" id="f-other" name="Project Details" required placeholder="e.g. Basement remodel" />
+              </div>
+              <button type="button" class="btn btn--brass quiz__next quiz__other-next">Continue</button>
             </div>
           </div>
 
@@ -1816,6 +1832,10 @@
             <div class="field">
               <label for="f-phone">Phone</label>
               <input type="tel" id="f-phone" name="Phone" required autocomplete="tel" inputmode="tel" />
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="field__optional">(optional)</span></label>
+              <input type="email" id="f-email" name="Email" autocomplete="email" placeholder="you@example.com" />
             </div>
             <button type="submit" class="btn btn--brass form__submit">Request My Free Estimate</button>
           </div>
@@ -1965,23 +1985,45 @@
       }
     }
 
+    var otherWrap = document.getElementById('quiz-other');
+    var otherInput = document.getElementById('f-other');
+
     form.querySelectorAll('.quiz__choice').forEach(function (btn) {
       btn.addEventListener('click', function () {
         form.querySelectorAll('.quiz__choice').forEach(function (choice) {
           choice.classList.remove('is-selected');
         });
         btn.classList.add('is-selected');
-        if (projectInput) projectInput.value = btn.getAttribute('data-value') || '';
+        var value = btn.getAttribute('data-value') || '';
+        if (projectInput) projectInput.value = value;
+
+        if (value === 'Other') {
+          if (otherWrap) {
+            otherWrap.hidden = false;
+            window.setTimeout(function () { if (otherInput) otherInput.focus(); }, 180);
+          }
+          return;
+        }
+
+        if (otherWrap) otherWrap.hidden = true;
         window.setTimeout(function () { showStep(2); }, 180);
       });
     });
 
-    var nextBtn = form.querySelector('.quiz__next');
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function () {
+    var zipNextBtn = form.querySelector('.quiz-step[data-step="2"] .quiz__next');
+    if (zipNextBtn) {
+      zipNextBtn.addEventListener('click', function () {
         var zip = form.querySelector('#f-zip');
         if (zip && zip.checkValidity()) showStep(3);
         else if (zip) zip.reportValidity();
+      });
+    }
+
+    var otherNextBtn = form.querySelector('.quiz__other-next');
+    if (otherNextBtn) {
+      otherNextBtn.addEventListener('click', function () {
+        if (otherInput && otherInput.checkValidity()) showStep(2);
+        else if (otherInput) otherInput.reportValidity();
       });
     }
 
@@ -1998,6 +2040,16 @@
           e.preventDefault();
           if (zipInput.checkValidity()) showStep(3);
           else zipInput.reportValidity();
+        }
+      });
+    }
+
+    if (otherInput) {
+      otherInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (otherInput.checkValidity()) showStep(2);
+          else otherInput.reportValidity();
         }
       });
     }
