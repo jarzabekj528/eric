@@ -369,30 +369,81 @@
       color: var(--charcoal);
     }
 
-    /* ─── HERO ───────────────────────────────────────────── */
+    /* ─── HERO (full-bleed cinematic) ────────────────────── */
     .hero {
-      background: var(--soft);
-      padding: 80px 0 0;
+      position: relative;
+      isolation: isolate;
+      background: var(--charcoal);
       overflow: hidden;
       border-bottom: var(--grid);
     }
-    .hero__inner {
-      display: grid;
-      grid-template-columns: 1fr 480px;
-      gap: 56px;
-      align-items: end;
+    /* Background photograph */
+    .hero__bg { position: absolute; inset: 0; z-index: -2; }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 66% 40%;
+      transform: scale(1.02);            /* hides any sub-pixel edge from the grid overlay */
     }
-    .hero__content   { padding-bottom: 80px; }
-    .hero__headline  { margin-bottom: 22px; }
-    .hero__sub       { font-size: 18px; line-height: 1.7; margin-bottom: 40px; max-width: 480px; }
+    /* Charcoal wash — heavy on the left for legibility, opening up to the photo on the right,
+       then a floor vignette that hands off seamlessly to the dark trust bar below. */
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(96deg, rgba(12,12,12,.95) 0%, rgba(14,14,14,.88) 30%, rgba(16,16,16,.58) 60%, rgba(17,17,17,.30) 100%),
+        linear-gradient(to bottom, rgba(17,17,17,0) 55%, rgba(17,17,17,.92) 100%);
+    }
+    /* Faint blueprint grid drawn across the photo, masked so it only reads over the dark side */
+    .hero__grid {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 92px 92px;
+      -webkit-mask-image: linear-gradient(96deg, #000 0%, #000 42%, transparent 76%);
+              mask-image: linear-gradient(96deg, #000 0%, #000 42%, transparent 76%);
+    }
+    .hero__inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 640px;
+      max-width: 630px;
+      padding: 120px 0 100px;
+    }
+    .hero__headline  { color: #fff; margin-bottom: 22px; }
+    .hero__sub       { font-size: 18px; line-height: 1.7; margin-bottom: 40px; max-width: 500px; color: rgba(255,255,255,.75); }
     .hero__actions   { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-
-    .hero__img {
-      height: 500px;
-      border: var(--grid);
-      border-bottom: none;
-      overflow: hidden;
-      background: var(--beige);
+    /* Editorial caption tag pinned to the photo corner */
+    .hero__caption {
+      position: absolute;
+      right: 24px;
+      bottom: 28px;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      background: rgba(17,17,17,.55);
+      border: 1px solid rgba(255,255,255,.20);
+      -webkit-backdrop-filter: blur(5px);
+              backdrop-filter: blur(5px);
+    }
+    .hero__caption-dot { width: 7px; height: 7px; background: var(--brass); flex-shrink: 0; }
+    .hero__caption-txt {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      white-space: nowrap;
     }
     .img-ph {
       width: 100%;
@@ -426,6 +477,12 @@
        Add class="photo--process" to an <img> to force grayscale.            */
     .photo--process { filter: grayscale(100%) contrast(1.05); }
     .photo--process:hover { filter: grayscale(0%); transition: filter .4s; }
+
+    /* Gentle zoom on the portfolio photos for a bit of life on hover */
+    .ba__frame img,
+    .about__photo img { transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+    .ba__frame:hover img,
+    .about__photo:hover img { transform: scale(1.045); }
 
     /* ─── TRUST BAR ──────────────────────────────────────── */
     .trust-bar { background: #111111; padding: 26px 0; }
@@ -558,22 +615,31 @@
       text-transform: uppercase;
       color: var(--warm-gray);
     }
+    /* Editorial mosaic — one tall feature tile beside two stacked details */
     .gallery__grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: 1.5fr 1fr;
+      grid-template-rows: 236px 236px;
       gap: 0;
       margin-top: 28px;
       border-top: var(--grid);
       border-left: var(--grid);
     }
     .g-item {
-      aspect-ratio: 3 / 4;
+      position: relative;
       border-right: var(--grid);
       border-bottom: var(--grid);
       overflow: hidden;
       background: var(--beige);
     }
-    .g-item img { width: 100%; height: 100%; object-fit: cover; }
+    .g-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s cubic-bezier(.2,.7,.2,1);
+    }
+    .g-item:hover img { transform: scale(1.055); }
+    .g-item--feature { grid-row: 1 / span 2; }
     .gallery__foot {
       margin-top: 44px;
       text-align: center;
@@ -1050,9 +1116,11 @@
 
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1024px) {
-      .hero__inner        { grid-template-columns: 1fr; gap: 40px; }
-      .hero__content      { padding-bottom: 0; }
-      .hero__img          { height: 340px; border-radius: var(--r-lg); }
+      /* Text now sits over the full photo — even out the wash and darken the base for contrast */
+      .hero__inner        { min-height: 560px; max-width: 620px; padding: 104px 0 88px; }
+      .hero__bg img       { object-position: 62% 40%; }
+      .hero__overlay      { background: linear-gradient(180deg, rgba(13,13,13,.72) 0%, rgba(14,14,14,.52) 38%, rgba(16,16,16,.86) 100%); }
+      .hero__grid         { -webkit-mask-image: linear-gradient(180deg, #000, transparent 68%); mask-image: linear-gradient(180deg, #000, transparent 68%); }
       .why__inner         { grid-template-columns: 1fr; }
       .about__inner       { grid-template-columns: 1fr; }
       .footer__grid       { grid-template-columns: 1fr 1fr; }
@@ -1064,6 +1132,8 @@
       .nav__inner         { gap: 12px; }
       .nav__logo img      { height: 36px; }
       .nav .nav__right .btn--brass { padding: 11px 16px; font-size: 14px; }
+      .hero__inner        { min-height: 520px; padding: 88px 0 76px; }
+      .hero__caption      { display: none; }
       .services__grid     { grid-template-columns: 1fr; }
       .reviews__grid, .reviews__grid--3 { grid-template-columns: 1fr; }
       .contact__inner     { grid-template-columns: 1fr; gap: 36px; }
@@ -1073,7 +1143,9 @@
       .faq                { padding: 64px 0; }
       .process            { padding: 64px 0; }
       .roadmap__track     { grid-template-columns: 1fr 1fr; }
-      .gallery__grid      { grid-template-columns: 1fr 1fr; }
+      .gallery__grid      { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+      .g-item             { aspect-ratio: 4 / 3; }
+      .g-item--feature    { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16 / 10; }
       .trust-divider      { display: none; }
       .trust-bar__inner   { justify-content: center; gap: 20px; }
       .footer__grid       { grid-template-columns: 1fr; gap: 32px; }
@@ -1095,9 +1167,12 @@
       }
     }
     @media (max-width: 480px) {
+      .hero__inner        { min-height: 480px; padding: 76px 0 64px; }
       .hero__actions      { flex-direction: column; align-items: flex-start; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
       .roadmap__track     { grid-template-columns: 1fr; }
       .gallery__grid      { grid-template-columns: 1fr; }
+      .g-item, .g-item--feature { aspect-ratio: 4 / 3; }
       h1                  { font-size: 32px; }
       .footer__bottom     { flex-direction: column; align-items: flex-start; }
     }
@@ -1156,34 +1231,40 @@
 
 <!-- ═══════════════════════════════ HERO ══════════════════════════════ -->
 <section class="hero" aria-label="Introduction">
+
+  <div class="hero__bg" aria-hidden="true">
+    <picture>
+      <source type="image/webp" srcset="images/hero-bathroom-800.webp 800w, images/hero-bathroom.webp 1125w" sizes="100vw" />
+      <img src="images/hero-bathroom.jpg" width="1125" height="1500" alt="Completed bathroom remodel by Say When Contracting — gray vanity, walk-in shower with grab bars, and rustic accent wall in Lima, Ohio" fetchpriority="high" decoding="async" />
+    </picture>
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
+
   <div class="wrap">
     <div class="hero__inner">
-      <div class="hero__content">
-        <span class="eyebrow">Lima &amp; All of Allen County, Ohio</span>
-        <h1 class="hero__headline">
-          We Remodel Homes.<br>And We Do It Right.
-        </h1>
-        <p class="hero__sub">
-          Bathrooms, kitchens, showers, and accessibility upgrades for homeowners across West Central Ohio. Locally owned. Licensed and insured. Free estimates, every time.
-        </p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--brass">
-            Get A Free Estimate
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-              <path d="M3 7.5h9M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#gallery" class="btn btn--outline">View Our Work</a>
-        </div>
-      </div>
-
-      <div class="hero__img">
-        <picture>
-          <source type="image/webp" srcset="images/hero-bathroom-800.webp 800w, images/hero-bathroom.webp 1125w" sizes="(max-width: 1024px) 100vw, 480px" />
-          <img src="images/hero-bathroom.jpg" width="1125" height="1500" alt="Completed bathroom remodel by Say When Contracting — gray vanity, walk-in shower with grab bars, and rustic accent wall in Lima, Ohio" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;" />
-        </picture>
+      <span class="eyebrow">Lima &amp; All of Allen County, Ohio</span>
+      <h1 class="hero__headline">
+        We Remodel Homes.<br>And We Do It Right.
+      </h1>
+      <p class="hero__sub">
+        Bathrooms, kitchens, showers, and accessibility upgrades for homeowners across West Central Ohio. Locally owned. Licensed and insured. Free estimates, every time.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--brass">
+          Get A Free Estimate
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+            <path d="M3 7.5h9M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#gallery" class="btn btn--outline-white">View Our Work</a>
       </div>
     </div>
+  </div>
+
+  <div class="hero__caption" aria-hidden="true">
+    <span class="hero__caption-dot"></span>
+    <span class="hero__caption-txt">Bathroom Remodel · Lima, OH</span>
   </div>
 </section>
 
@@ -1499,9 +1580,9 @@
 
     <p class="gallery__detail-head">A Few Finished Details</p>
     <div class="gallery__grid" role="list">
-      <div class="g-item" role="listitem">
+      <div class="g-item g-item--feature" role="listitem">
         <picture>
-          <source type="image/webp" srcset="images/detail-1-800.webp 800w, images/detail-1.webp 1125w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" />
+          <source type="image/webp" srcset="images/detail-1-800.webp 800w, images/detail-1.webp 1125w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 40vw" />
           <img src="images/detail-1.jpg" width="1125" height="1500" alt="Walk-in shower with grab bar and rustic plank accent wall" loading="lazy" decoding="async" />
         </picture>
       </div>
