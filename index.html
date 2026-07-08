@@ -597,13 +597,6 @@
       border-top: var(--grid);
     }
     .ba__cap-title { font-size: 15px; font-weight: 600; color: var(--charcoal); }
-    .ba__cap-loc {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--brass);
-    }
 
     /* Finished-detail strip */
     .gallery__detail-head {
@@ -615,11 +608,10 @@
       text-transform: uppercase;
       color: var(--warm-gray);
     }
-    /* Editorial mosaic — one tall feature tile beside two stacked details */
+    /* Three portrait detail tiles, each shown in full (no cropping) */
     .gallery__grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      grid-template-rows: 236px 236px;
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
       margin-top: 28px;
       border-top: var(--grid);
@@ -627,6 +619,7 @@
     }
     .g-item {
       position: relative;
+      aspect-ratio: 3 / 4;
       border-right: var(--grid);
       border-bottom: var(--grid);
       overflow: hidden;
@@ -639,7 +632,6 @@
       transition: transform .55s cubic-bezier(.2,.7,.2,1);
     }
     .g-item:hover img { transform: scale(1.055); }
-    .g-item--feature { grid-row: 1 / span 2; }
     .gallery__foot {
       margin-top: 44px;
       text-align: center;
@@ -673,61 +665,6 @@
     }
     .rev-card__name  { font-size: 14px; font-weight: 600; color: var(--charcoal); }
     .rev-card__loc   { font-size: 13px; color: var(--warm-gray); margin-top: 2px; }
-
-    /* ─── PROCESS / ROADMAP ──────────────────────────────── */
-    .process { padding: 96px 0; background: var(--white); border-bottom: var(--grid); }
-    .roadmap {
-      margin-top: 60px;
-      border-top: var(--grid);
-      border-left: var(--grid);
-    }
-    .roadmap__track {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .roadmap__step {
-      padding: 32px 24px 36px;
-      border-right: var(--grid);
-      border-bottom: var(--grid);
-      position: relative;
-    }
-    .roadmap__step::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 24px;
-      width: 12px;
-      height: 12px;
-      background: var(--brass);
-      border: 2px solid var(--white);
-      box-shadow: 0 0 0 1px var(--brass);
-    }
-    .roadmap__week {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--brass);
-      margin: 0 0 14px 22px;
-    }
-    .roadmap__title {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      padding-left: 22px;
-    }
-    .roadmap__desc {
-      font-size: 14px;
-      color: var(--warm-gray);
-      line-height: 1.65;
-      padding-left: 22px;
-    }
-    .roadmap__note {
-      margin-top: 28px;
-      text-align: center;
-      font-size: 14px;
-      color: var(--warm-gray);
-    }
 
     /* ─── ABOUT ERIC ─────────────────────────────────────── */
     .about { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
@@ -1115,6 +1052,27 @@
     .quiz__back[hidden] { display: none; }
 
     /* ─── RESPONSIVE ─────────────────────────────────────── */
+    /* Desktop: the portrait photo is a tall panel on the right (shown in full,
+       not a zoomed crop), with the headline over a solid charcoal panel. */
+    @media (min-width: 1025px) {
+      .hero__inner   { min-height: 660px; }
+      .hero__bg      { left: auto; right: 0; width: 42%; }
+      .hero__bg img  { object-position: 50% 44%; transform: none; }
+      .hero__overlay {
+        background:
+          linear-gradient(90deg,
+            var(--charcoal) 0%,
+            var(--charcoal) 52%,
+            rgba(17,17,17,.92) 58%,
+            rgba(17,17,17,.35) 64%,
+            rgba(17,17,17,0) 72%),
+          linear-gradient(to bottom, rgba(17,17,17,0) 60%, rgba(17,17,17,.5) 100%);
+      }
+      .hero__grid {
+        -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 46%, transparent 60%);
+                mask-image: linear-gradient(90deg, #000 0%, #000 46%, transparent 60%);
+      }
+    }
     @media (max-width: 1024px) {
       /* Text now sits over the full photo — even out the wash and darken the base for contrast */
       .hero__inner        { min-height: 560px; max-width: 620px; padding: 104px 0 88px; }
@@ -1141,11 +1099,6 @@
       .form               { padding: 26px 22px; }
       .form__row          { grid-template-columns: 1fr; gap: 0; }
       .faq                { padding: 64px 0; }
-      .process            { padding: 64px 0; }
-      .roadmap__track     { grid-template-columns: 1fr 1fr; }
-      .gallery__grid      { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
-      .g-item             { aspect-ratio: 4 / 3; }
-      .g-item--feature    { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16 / 10; }
       .trust-divider      { display: none; }
       .trust-bar__inner   { justify-content: center; gap: 20px; }
       .footer__grid       { grid-template-columns: 1fr; gap: 32px; }
@@ -1170,9 +1123,8 @@
       .hero__inner        { min-height: 480px; padding: 76px 0 64px; }
       .hero__actions      { flex-direction: column; align-items: flex-start; }
       .hero__actions .btn { width: 100%; justify-content: center; }
-      .roadmap__track     { grid-template-columns: 1fr; }
       .gallery__grid      { grid-template-columns: 1fr; }
-      .g-item, .g-item--feature { aspect-ratio: 4 / 3; }
+      .g-item             { aspect-ratio: 3 / 4; }
       h1                  { font-size: 32px; }
       .footer__bottom     { flex-direction: column; align-items: flex-start; }
     }
@@ -1264,7 +1216,7 @@
 
   <div class="hero__caption" aria-hidden="true">
     <span class="hero__caption-dot"></span>
-    <span class="hero__caption-txt">Bathroom Remodel · Lima, OH</span>
+    <span class="hero__caption-txt">Bathroom Remodel</span>
   </div>
 </section>
 
@@ -1526,7 +1478,6 @@
         </div>
         <figcaption class="ba__cap">
           <span class="ba__cap-title">Accessible bathroom remodel &amp; barn door</span>
-          <span class="ba__cap-loc">Lima, Ohio</span>
         </figcaption>
       </figure>
 
@@ -1549,7 +1500,6 @@
         </div>
         <figcaption class="ba__cap">
           <span class="ba__cap-title">Full tub &amp; tile rebuild</span>
-          <span class="ba__cap-loc">Allen County, Ohio</span>
         </figcaption>
       </figure>
 
@@ -1572,7 +1522,6 @@
         </div>
         <figcaption class="ba__cap">
           <span class="ba__cap-title">Complete bathroom makeover</span>
-          <span class="ba__cap-loc">West Central Ohio</span>
         </figcaption>
       </figure>
 
@@ -1580,7 +1529,7 @@
 
     <p class="gallery__detail-head">A Few Finished Details</p>
     <div class="gallery__grid" role="list">
-      <div class="g-item g-item--feature" role="listitem">
+      <div class="g-item" role="listitem">
         <picture>
           <source type="image/webp" srcset="images/detail-1-800.webp 800w, images/detail-1.webp 1125w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 40vw" />
           <img src="images/detail-1.jpg" width="1125" height="1500" alt="Walk-in shower with grab bar and rustic plank accent wall" loading="lazy" decoding="async" />
@@ -1656,44 +1605,6 @@
         <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" class="btn btn--brass" target="_blank" rel="noopener noreferrer" data-review-link>Leave a Google Review</a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════ PROCESS ═══════════════════════════ -->
-<section class="process" aria-labelledby="proc-h">
-  <div class="wrap">
-    <div class="sec-head sec-head--center">
-      <span class="eyebrow">What to Expect</span>
-      <h2 id="proc-h">Your 4-Week Remodel Roadmap</h2>
-      <p>A clear week-by-week plan so you always know what's happening — and when you'll have your bathroom back.</p>
-    </div>
-
-    <div class="roadmap">
-      <div class="roadmap__track" role="list">
-        <div class="roadmap__step" role="listitem">
-          <p class="roadmap__week">Week 1</p>
-          <h3 class="roadmap__title">Design &amp; Material Selection</h3>
-          <p class="roadmap__desc">We finalize your layout, fixtures, and finishes together — before a single tool comes out.</p>
-        </div>
-        <div class="roadmap__step" role="listitem">
-          <p class="roadmap__week">Week 2</p>
-          <h3 class="roadmap__title">Dust-Sealed Demolition</h3>
-          <p class="roadmap__desc">The old space comes out carefully. We seal off the work area to protect the rest of your home.</p>
-        </div>
-        <div class="roadmap__step" role="listitem">
-          <p class="roadmap__week">Week 3</p>
-          <h3 class="roadmap__title">Custom Build &amp; Tile</h3>
-          <p class="roadmap__desc">Framing, plumbing, waterproofing, and tile — the craftsmanship that makes your remodel last.</p>
-        </div>
-        <div class="roadmap__step" role="listitem">
-          <p class="roadmap__week">Week 4</p>
-          <h3 class="roadmap__title">Final Walkthrough &amp; Handover</h3>
-          <p class="roadmap__desc">We walk through every detail together. You're fully satisfied before we consider the job done.</p>
-        </div>
-      </div>
-      <p class="roadmap__note">Typical bathroom remodel timeline · Your schedule may vary based on scope and materials</p>
     </div>
   </div>
 </section>
