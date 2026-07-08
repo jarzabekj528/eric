@@ -874,7 +874,7 @@
 
     /* ─── SCHEDULE / BOOKING CALENDAR ────────────────────── */
     .schedule[hidden] { display: none; }
-    .schedule { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
+    .schedule { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); scroll-margin-top: 88px; }
     .schedule__head { max-width: 660px; margin: 0 auto 40px; text-align: center; }
     .schedule__head .eyebrow { color: var(--brass); }
     .schedule__head h2 { margin-bottom: 16px; }
@@ -2152,7 +2152,11 @@
         if (result.ok) {
           form.classList.add('is-sent');
           revealCalendar();
-          form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Send the lead straight to the booking step, not the thank-you message.
+          var scheduleEl = document.getElementById('schedule');
+          window.requestAnimationFrame(function () {
+            (scheduleEl || form).scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
         } else {
           form.classList.add('has-error');
         }
