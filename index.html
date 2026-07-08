@@ -872,6 +872,28 @@
     .contact__direct-item a, .contact__direct-item span { color: var(--white); font-size: 16px; font-weight: 500; }
     .contact__direct-label { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); font-weight: 600; }
 
+    /* ─── SCHEDULE / BOOKING CALENDAR ────────────────────── */
+    .schedule[hidden] { display: none; }
+    .schedule { padding: 96px 0; background: var(--soft); border-bottom: var(--grid); }
+    .schedule__head { max-width: 660px; margin: 0 auto 40px; text-align: center; }
+    .schedule__head .eyebrow { color: var(--brass); }
+    .schedule__head h2 { margin-bottom: 16px; }
+    .schedule__head p { color: var(--warm-gray); font-size: 17px; }
+    .schedule__head p a { color: var(--brass); font-weight: 600; }
+    .schedule__frame {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--white);
+      border: var(--grid);
+      padding: 10px;
+    }
+    .schedule__frame iframe {
+      width: 100%;
+      min-height: 720px;
+      border: none;
+      display: block;
+    }
+
     .form {
       background: var(--white);
       border: var(--grid);
@@ -1096,6 +1118,8 @@
       .reviews__grid, .reviews__grid--3 { grid-template-columns: 1fr; }
       .contact__inner     { grid-template-columns: 1fr; gap: 36px; }
       .contact            { padding: 64px 0; }
+      .schedule           { padding: 64px 0; }
+      .schedule__frame    { padding: 6px; }
       .form               { padding: 26px 22px; }
       .form__row          { grid-template-columns: 1fr; gap: 0; }
       .faq                { padding: 64px 0; }
@@ -1850,14 +1874,33 @@
 
         <div class="form__success" role="status" aria-live="polite">
           <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 6 12-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Thank you — message received.</h3>
-          <p>Eric will be in touch shortly. If it's urgent, call or text <a href="tel:+12693392545" style="color:var(--brass);font-weight:600;">(269) 339-2545</a>.</p>
+          <h3>Thank you — your request is in.</h3>
+          <p>As a next step, pick a time just below for your free in-home visit. Prefer Eric reach out first? He'll be in touch shortly — or call/text <a href="tel:+12693392545" style="color:var(--brass);font-weight:600;">(269) 339-2545</a>.</p>
         </div>
       </form>
 
     </div>
   </div>
 </section>
+
+
+<!-- ═══════════════════════════════ SCHEDULE ══════════════════════════ -->
+<section class="schedule" id="schedule" aria-labelledby="sched-h" hidden>
+  <div class="wrap">
+    <div class="schedule__head">
+      <span class="eyebrow">Final Step</span>
+      <h2 id="sched-h">Pick a Time for Your In-Home Visit</h2>
+      <p>You're all set — your request is in. Want to move things along? Choose a day that works and Eric will come out to see the space, talk through your ideas, and confirm your free, no-pressure estimate in person. Questions first? <a href="tel:+12693392545">Call or text (269) 339-2545</a>.</p>
+    </div>
+    <div class="schedule__frame">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/CMZB4BRAukTYZCgDlWkY"
+              style="width:100%;border:none;overflow:hidden;" scrolling="no"
+              title="Schedule an in-home estimate visit with Say When Contracting"
+              id="CMZB4BRAukTYZCgDlWkY_1783527958611"></iframe>
+    </div>
+  </div>
+</section>
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 
 
 <!-- ═══════════════════════════════ FOOTER ════════════════════════════ -->
@@ -2060,6 +2103,32 @@
       });
     }
 
+    // Reveal + prefill the GHL booking calendar once the lead has submitted the form.
+    function revealCalendar() {
+      var schedule = document.getElementById('schedule');
+      if (!schedule) return;
+      schedule.hidden = false;
+      var frame = document.getElementById('CMZB4BRAukTYZCgDlWkY_1783527958611');
+      if (frame) {
+        var val = function (id) {
+          var el = form.querySelector(id);
+          return el && el.value ? el.value.trim() : '';
+        };
+        var nameParts = val('#f-name').split(/\s+/);
+        var params = [];
+        var first = nameParts.shift() || '';
+        var last = nameParts.join(' ');
+        if (first) params.push('first_name=' + encodeURIComponent(first));
+        if (last) params.push('last_name=' + encodeURIComponent(last));
+        var phone = val('#f-phone');
+        var email = val('#f-email');
+        if (phone) params.push('phone=' + encodeURIComponent(phone));
+        if (email) params.push('email=' + encodeURIComponent(email));
+        var base = 'https://api.leadconnectorhq.com/widget/booking/CMZB4BRAukTYZCgDlWkY';
+        frame.src = base + (params.length ? '?' + params.join('&') : '');
+      }
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!projectInput || !projectInput.value) {
@@ -2082,7 +2151,8 @@
         btn.textContent = original;
         if (result.ok) {
           form.classList.add('is-sent');
-          form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          revealCalendar();
+          form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
           form.classList.add('has-error');
         }
