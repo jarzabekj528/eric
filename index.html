@@ -315,7 +315,7 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: var(--white);
+      background: var(--charcoal);
       border-bottom: var(--grid);
     }
     .nav__inner {
@@ -334,6 +334,9 @@
       display: block;
       height: 44px;
       width: auto;
+      /* black-on-white logo → white text with the box dropped out on any dark bg */
+      filter: invert(1);
+      mix-blend-mode: screen;
     }
     .nav__links {
       display: flex;
@@ -343,10 +346,10 @@
     .nav__links a {
       font-size: 14px;
       font-weight: 500;
-      color: var(--warm-gray);
+      color: var(--stone);
       transition: color .18s;
     }
-    .nav__links a:hover { color: var(--charcoal); }
+    .nav__links a:hover { color: var(--white); }
     .nav__right {
       display: flex;
       align-items: center;
@@ -360,13 +363,13 @@
       font-weight: 500;
       letter-spacing: .06em;
       text-transform: uppercase;
-      color: var(--warm-gray);
+      color: var(--stone);
       display: block;
     }
     .nav__phone-num {
       font-size: 15px;
       font-weight: 700;
-      color: var(--charcoal);
+      color: var(--white);
     }
 
     /* ─── HERO (full-bleed cinematic) ────────────────────── */
@@ -781,19 +784,19 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .nav__toggle svg { width: 24px; height: 24px; color: var(--charcoal); }
+    .nav__toggle svg { width: 24px; height: 24px; color: var(--white); }
     .nav__mobile {
       display: none;
       border-top: var(--grid);
-      background: var(--white);
+      background: var(--charcoal);
     }
     .nav__mobile a {
       display: block;
       padding: 16px 24px;
       font-size: 16px;
       font-weight: 500;
-      color: var(--charcoal);
-      border-bottom: 1px solid var(--beige);
+      color: var(--white);
+      border-bottom: 1px solid var(--line);
     }
     .nav__mobile a:last-child { border-bottom: none; }
     .nav__mobile a.nav__mobile-call { color: var(--brass); font-weight: 600; }
