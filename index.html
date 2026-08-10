@@ -616,6 +616,68 @@
       border-top: var(--grid);
     }
     .ba__cap-title { font-size: 15px; font-weight: 600; color: var(--charcoal); }
+    .ba__cap-loc {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      white-space: nowrap;
+    }
+
+    /* Build sequence — one shower, four stages */
+    .build { margin-top: 64px; }
+    .build__head { text-align: center; }
+    .build__head .gallery__detail-head { margin-top: 0; }
+    .build__lede {
+      max-width: 640px;
+      margin: 14px auto 0;
+      font-size: 15px;
+      line-height: 1.62;
+      color: var(--warm-gray);
+    }
+    .build__grid {
+      display: grid;
+      /* minmax(0,…) — plain 1fr floors at min-content, and the longer step titles
+         ("Waterproofed") were widening their column by ~9px against the others. */
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 28px;
+      list-style: none;
+      border-top: var(--grid);
+      border-left: var(--grid);
+    }
+    .build__step {
+      border-right: var(--grid);
+      border-bottom: var(--grid);
+      background: var(--white);
+      padding-bottom: 24px;
+    }
+    .build__frame {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--beige);
+      border-bottom: var(--grid);
+    }
+    .build__frame img { width: 100%; height: 100%; object-fit: cover; }
+    .build__num {
+      margin: 18px 22px 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--brass);
+    }
+    .build__title {
+      margin: 6px 22px 0;
+      font-size: 16px;
+    }
+    .build__text {
+      margin: 7px 22px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--warm-gray);
+    }
 
     /* Finished-detail strip */
     .gallery__detail-head {
@@ -1123,6 +1185,7 @@
       .why__inner         { grid-template-columns: 1fr; }
       .about__inner       { grid-template-columns: 1fr; }
       .footer__grid       { grid-template-columns: 1fr 1fr; }
+      .build__grid        { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 768px) {
       .nav__links         { display: none; }
@@ -1166,8 +1229,13 @@
       .hero__inner        { min-height: 480px; padding: 76px 0 64px; }
       .hero__actions      { flex-direction: column; align-items: flex-start; }
       .hero__actions .btn { width: 100%; justify-content: center; }
-      .gallery__grid      { grid-template-columns: 1fr; }
+      /* Two-up keeps the detail + build strips scannable instead of six full-height scrolls */
+      .gallery__grid      { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .g-item             { aspect-ratio: 3 / 4; }
+      .build__num,
+      .build__title,
+      .build__text        { margin-left: 16px; margin-right: 16px; }
+      .build__text        { font-size: 13px; }
       h1                  { font-size: 32px; }
       .footer__bottom     { flex-direction: column; align-items: flex-start; }
     }
@@ -1507,15 +1575,15 @@
           <div class="ba__frame">
             <span class="ba__tag">Before</span>
             <picture>
-              <source type="image/webp" srcset="images/before-1-800.webp 800w, images/before-1.webp 1125w" sizes="(max-width: 768px) 100vw, 50vw" />
-              <img src="images/before-1.jpg" width="1125" height="1500" alt="Dated, cramped bathroom before remodeling, with old fixtures and a mobility walker" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="images/before-1-800.webp 800w, images/before-1.webp 1500w" sizes="50vw" />
+              <img src="images/before-1.jpg" width="1500" height="1125" alt="Dated, cramped bathroom before remodeling, with old fixtures and a mobility walker" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="ba__frame">
             <span class="ba__tag ba__tag--after">After</span>
             <picture>
-              <source type="image/webp" srcset="images/after-1-800.webp 800w, images/after-1.webp 1125w" sizes="(max-width: 768px) 100vw, 50vw" />
-              <img src="images/after-1.jpg" width="1125" height="1500" alt="Remodeled accessible bathroom with rustic plank walls, barn door, and grab bars" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="images/after-1-800.webp 800w, images/after-1.webp 1500w" sizes="50vw" />
+              <img src="images/after-1.jpg" width="1500" height="1125" alt="Remodeled accessible bathroom with rustic plank walls, barn door, and grab bars" loading="lazy" decoding="async" />
             </picture>
           </div>
         </div>
@@ -1529,15 +1597,15 @@
           <div class="ba__frame">
             <span class="ba__tag">Before</span>
             <picture>
-              <source type="image/webp" srcset="images/before-2-800.webp 800w, images/before-2.webp 1125w" sizes="(max-width: 768px) 100vw, 50vw" />
-              <img src="images/before-2.jpg" width="1125" height="1500" alt="Bathroom stripped to the studs during demolition, old tub and window exposed" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="images/before-2-800.webp 800w, images/before-2.webp 1500w" sizes="50vw" />
+              <img src="images/before-2.jpg" width="1500" height="1125" alt="Bathroom stripped to the studs during demolition, old tub and window exposed" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="ba__frame">
             <span class="ba__tag ba__tag--after">After</span>
             <picture>
-              <source type="image/webp" srcset="images/after-2-800.webp 800w, images/after-2.webp 1125w" sizes="(max-width: 768px) 100vw, 50vw" />
-              <img src="images/after-2.jpg" width="1125" height="1500" alt="Finished bathroom with white marble tile tub surround and new wood-look flooring" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="images/after-2-800.webp 800w, images/after-2.webp 1500w" sizes="50vw" />
+              <img src="images/after-2.jpg" width="1500" height="1125" alt="Rebuilt bathroom with a white marble-look tile tub surround, fresh drywall, and a new window" loading="lazy" decoding="async" />
             </picture>
           </div>
         </div>
@@ -1551,15 +1619,15 @@
           <div class="ba__frame">
             <span class="ba__tag">Before</span>
             <picture>
-              <source type="image/webp" srcset="images/before-3-800.webp 800w, images/before-3.webp 1125w" sizes="(max-width: 768px) 100vw, 50vw" />
-              <img src="images/before-3.jpg" width="1125" height="1500" alt="Old, cluttered bathroom with dated vanity and fixtures before remodeling" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="images/before-3-800.webp 800w, images/before-3.webp 1500w" sizes="50vw" />
+              <img src="images/before-3.jpg" width="1500" height="1125" alt="Old, cluttered bathroom with dated vanity and fixtures before remodeling" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="ba__frame">
             <span class="ba__tag ba__tag--after">After</span>
             <picture>
-              <source type="image/webp" srcset="images/after-3-800.webp 800w, images/after-3.webp 1125w" sizes="(max-width: 768px) 100vw, 50vw" />
-              <img src="images/after-3.jpg" width="1125" height="1500" alt="Updated bathroom with new white vanity, rustic accent wall, and walk-in shower" loading="lazy" decoding="async" />
+              <source type="image/webp" srcset="images/after-3-800.webp 800w, images/after-3.webp 1500w" sizes="50vw" />
+              <img src="images/after-3.jpg" width="1500" height="1125" alt="Updated bathroom with a new white vanity, comfort-height toilet, and rustic gray plank accent wall" loading="lazy" decoding="async" />
             </picture>
           </div>
         </div>
@@ -1568,6 +1636,106 @@
         </figcaption>
       </figure>
 
+      <figure class="ba">
+        <div class="ba__pair">
+          <div class="ba__frame">
+            <span class="ba__tag">Before</span>
+            <picture>
+              <source type="image/webp" srcset="images/stmarys-before-800.webp 800w, images/stmarys-before.webp 1500w" sizes="50vw" />
+              <img src="images/stmarys-before.jpg" width="1500" height="1125" alt="Dated bathroom in St. Marys, Ohio before remodeling, with a worn almond tub-shower unit and mint green walls" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--after">After</span>
+            <picture>
+              <source type="image/webp" srcset="images/stmarys-after-800.webp 800w, images/stmarys-after.webp 1500w" sizes="50vw" />
+              <img src="images/stmarys-after.jpg" width="1500" height="1125" alt="Tub replaced with a low-step walk-in shower, grab bar, sliding glass doors, and wood-look plank flooring" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+        <figcaption class="ba__cap">
+          <span class="ba__cap-title">Tub-to-shower conversion with a low-step base</span>
+          <span class="ba__cap-loc">St. Marys, OH</span>
+        </figcaption>
+      </figure>
+
+      <figure class="ba">
+        <div class="ba__pair">
+          <div class="ba__frame">
+            <span class="ba__tag">Before</span>
+            <picture>
+              <source type="image/webp" srcset="images/newhampshire-before-800.webp 800w, images/newhampshire-before.webp 1500w" sizes="50vw" />
+              <img src="images/newhampshire-before.jpg" width="1500" height="1125" alt="Century-home bathroom in New Hampshire, Ohio gutted to bare walls and subfloor before rebuilding" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--after">After</span>
+            <picture>
+              <source type="image/webp" srcset="images/newhampshire-after-800.webp 800w, images/newhampshire-after.webp 1500w" sizes="50vw" />
+              <img src="images/newhampshire-after.jpg" width="1500" height="1125" alt="Rebuilt bathroom with a glass-door shower, dark wood vanity, and plank flooring, with the home's original stained trim kept intact" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </div>
+        <figcaption class="ba__cap">
+          <span class="ba__cap-title">Full gut remodel — original woodwork kept</span>
+          <span class="ba__cap-loc">New Hampshire, OH</span>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <!-- Build sequence: the same New Hampshire shower alcove, start to finish -->
+    <div class="build">
+      <div class="build__head">
+        <p class="gallery__detail-head">Behind the Walls</p>
+        <p class="build__lede">Most of a good remodel is the part you never see again. Here's the same shower in New Hampshire, Ohio at four points in the job.</p>
+      </div>
+      <ol class="build__grid" role="list">
+        <li class="build__step">
+          <div class="build__frame">
+            <picture>
+              <source type="image/webp" srcset="images/build-1-demo-800.webp 800w, images/build-1-demo.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 1024px) 50vw, 25vw" />
+              <img src="images/build-1-demo.jpg" width="1125" height="1500" alt="Bathroom stripped back to the original plank sheathing and bare subfloor during demolition" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <p class="build__num">01</p>
+          <h3 class="build__title">Down to the bones</h3>
+          <p class="build__text">Everything comes out so we can see what we're actually dealing with — rot, old plumbing, sagging framing.</p>
+        </li>
+        <li class="build__step">
+          <div class="build__frame">
+            <picture>
+              <source type="image/webp" srcset="images/build-2-waterproof-800.webp 800w, images/build-2-waterproof.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 1024px) 50vw, 25vw" />
+              <img src="images/build-2-waterproof.jpg" width="1125" height="1500" alt="Shower alcove rebuilt with waterproof backer board and solid wood blocking set into the walls for grab bars" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <p class="build__num">02</p>
+          <h3 class="build__title">Waterproofed &amp; blocked</h3>
+          <p class="build__text">Waterproof board over every wet surface, plus solid blocking in the walls so grab bars can go anywhere later.</p>
+        </li>
+        <li class="build__step">
+          <div class="build__frame">
+            <picture>
+              <source type="image/webp" srcset="images/build-3-shower-800.webp 800w, images/build-3-shower.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 1024px) 50vw, 25vw" />
+              <img src="images/build-3-shower.jpg" width="1125" height="1500" alt="New white shower base and surround set level in the rebuilt alcove" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <p class="build__num">03</p>
+          <h3 class="build__title">Shower set</h3>
+          <p class="build__text">Base shimmed dead level and the surround set tight to the walls, so water goes to the drain and nowhere else.</p>
+        </li>
+        <li class="build__step">
+          <div class="build__frame">
+            <picture>
+              <source type="image/webp" srcset="images/build-4-finished-800.webp 800w, images/build-4-finished.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 1024px) 50vw, 25vw" />
+              <img src="images/build-4-finished.jpg" width="1125" height="1500" alt="Finished shower with sliding glass doors, brushed nickel fixtures, and fresh paint" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <p class="build__num">04</p>
+          <h3 class="build__title">Finished</h3>
+          <p class="build__text">Glass doors, trim, paint, and a full clean-up — we don't leave until the room is ready to use.</p>
+        </li>
+      </ol>
     </div>
 
     <p class="gallery__detail-head">A Few Finished Details</p>
@@ -1586,8 +1754,26 @@
       </div>
       <div class="g-item" role="listitem">
         <picture>
-          <source type="image/webp" srcset="images/detail-3-800.webp 800w, images/detail-3.webp 1125w" sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" />
+          <source type="image/webp" srcset="images/detail-3-800.webp 800w, images/detail-3.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 768px) 50vw, 33vw" />
           <img src="images/detail-3.jpg" width="1125" height="1500" alt="New vanity and mirror against a rustic gray plank wall" loading="lazy" decoding="async" />
+        </picture>
+      </div>
+      <div class="g-item" role="listitem">
+        <picture>
+          <source type="image/webp" srcset="images/detail-4-800.webp 800w, images/detail-4.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 768px) 50vw, 33vw" />
+          <img src="images/detail-4.jpg" width="1125" height="1500" alt="Dark wood vanity with a marble-look top, framed mirror, and grab bar in a New Hampshire, Ohio bathroom" loading="lazy" decoding="async" />
+        </picture>
+      </div>
+      <div class="g-item" role="listitem">
+        <picture>
+          <source type="image/webp" srcset="images/detail-5-800.webp 800w, images/detail-5.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 768px) 50vw, 33vw" />
+          <img src="images/detail-5.jpg" width="1125" height="1500" alt="Comfort-height toilet with a wall grab bar beside a glass-door walk-in shower" loading="lazy" decoding="async" />
+        </picture>
+      </div>
+      <div class="g-item" role="listitem">
+        <picture>
+          <source type="image/webp" srcset="images/detail-6-800.webp 800w, images/detail-6.webp 1125w" sizes="(max-width: 480px) 50vw, (max-width: 768px) 50vw, 33vw" />
+          <img src="images/detail-6.jpg" width="1125" height="1500" alt="Finished St. Marys bathroom with a gray shaker vanity, framed mirror, and walk-in shower" loading="lazy" decoding="async" />
         </picture>
       </div>
     </div>
