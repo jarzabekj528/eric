@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.saywhencontracting.com/</loc>
-    <lastmod>2026-08-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.saywhencontracting.com/thank-you.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.1</priority>
-  </url>
+  <url><loc>https://www.saywhencontracting.com/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/kitchen-remodeling/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/bathroom-remodeling/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/whole-home-remodeling/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/walk-in-showers/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/tub-to-shower-conversions/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/custom-cabinets/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/flooring-installation/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/services/tile-installation/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/service-areas/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/projects/st-marys-walk-in-shower/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/contact/</loc><lastmod>2026-09-07</lastmod></url>
+  <url><loc>https://www.saywhencontracting.com/estimate/</loc><lastmod>2026-09-07</lastmod></url>
 </urlset>

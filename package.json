@@ -1,0 +1,9 @@
+{
+  "name": "say-when-contracting-website",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-assets.mjs",
+    "check": "python3 scripts/check-seo.py"
+  },
+  "devDependencies": { "esbuild": "0.25.9" }
+}

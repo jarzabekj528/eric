@@ -1,34 +1,21 @@
-# Security headers for all responses
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cache-Control: public, max-age=0, must-revalidate
 
-# Cache images aggressively (they rarely change)
+# Unversioned photos may be replaced; do not cache immutably for a year.
 /images/*
-  Cache-Control: public, max-age=31536000, immutable
-
-# Cache self-hosted fonts aggressively (they never change)
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
-
-/logo.jpg
-  Cache-Control: public, max-age=31536000, immutable
-
-/favicon.ico
-  Cache-Control: public, max-age=31536000, immutable
-
-/favicon-*.png
-  Cache-Control: public, max-age=31536000, immutable
-
-/apple-touch-icon.png
-  Cache-Control: public, max-age=31536000, immutable
-
-/android-chrome-*.png
-  Cache-Control: public, max-age=31536000, immutable
-
-# Always revalidate HTML so content updates show immediately
-/*.html
+/assets/*
   Cache-Control: public, max-age=0, must-revalidate
+
+/assets/site.fbc53f90008c.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/site.778c723d0ec4.js
+  Cache-Control: public, max-age=31536000, immutable
