@@ -6,7 +6,7 @@ const root = new URL('../', import.meta.url);
 async function htmlFiles(dir) {
   const files = [];
   for (const item of await readdir(dir, { withFileTypes: true })) {
-    if (item.name.startsWith('.') || ['node_modules', 'dist'].includes(item.name)) continue;
+    if (item.name.startsWith('.') || ['node_modules', 'dist', 'booking-landing', 'financing-landing'].includes(item.name)) continue;
     const name = path.join(dir, item.name);
     if (item.isDirectory()) files.push(...await htmlFiles(name));
     else if (name.endsWith('.html')) files.push(name);

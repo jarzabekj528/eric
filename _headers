@@ -14,7 +14,7 @@
 /assets/*
   Cache-Control: public, max-age=0, must-revalidate
 
-/assets/site.fbc53f90008c.css
+/assets/site.4c46800c3f61.css
   Cache-Control: public, max-age=31536000, immutable
 
 /assets/site.778c723d0ec4.js

@@ -20,7 +20,7 @@ class Page(HTMLParser):
         if self.in_ld:self.chunk+=data
         if self.in_title:self.title+=data
     def find(self,tag,**attrs):return [a for t,a in self.tags if t==tag and all(a.get(k)==v for k,v in attrs.items())]
-pages={p:Page(p.read_text()) for p in ROOT.rglob('*.html') if not any(x in p.parts for x in ['node_modules','.git','.wrangler','dist'])}
+pages={p:Page(p.read_text()) for p in ROOT.rglob('*.html') if not any(x in p.parts for x in ['node_modules','.git','.wrangler','dist','booking-landing','financing-landing'])}
 errors=[]
 def check(value,msg):
     if not value:errors.append(msg)
