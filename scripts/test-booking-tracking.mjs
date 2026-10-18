@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 
-const source = readFileSync(new URL('../booking-landing/assets/tracking-v5.js', import.meta.url), 'utf8');
+const source = readFileSync(new URL('../booking-landing/assets/tracking-v6.js', import.meta.url), 'utf8');
 
 async function checkPage(pathname, storedEvent, expectedEvent) {
   const resources = [];
