@@ -75,7 +75,8 @@ img { display: block; max-width: 100%; }
 .quiz-card__next:hover { background: rgba(0, 0, 0, .16); }
 .quiz-card__next:disabled { opacity: .7; cursor: wait; }
 .quiz-card__next:focus-visible, .quiz-card__back:focus-visible { outline: 3px solid #fff; outline-offset: -5px; }
-.trust-badge { width: 146px; height: auto; margin: 22px auto 0; border-radius: 4px; }
+.availability { display: table; margin: 22px auto 17px; padding: 7px 15px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px; background: rgba(0,0,0,.2); font-size: .94rem; font-weight: 700; }
+.trust-badge { width: 146px; height: auto; margin: 0 auto; border-radius: 4px; }
 .funnel-legal { margin: 16px 0 0; color: rgba(255, 255, 255, .82); font-size: .75rem; line-height: 1.45; }
 .funnel-legal a { color: #fff; font-weight: 700; }
 
@@ -209,7 +210,7 @@ img { display: block; max-width: 100%; }
 }
   </style>
   <script defer src="/assets/tracking-v6.js"></script>
-  <script defer src="/assets/app-v3.js"></script>
+  <script defer src="/assets/app-v4.js"></script>
 </head>
 <body class="funnel-page funnel-page--optin">
   <header class="brandbar" aria-label="Say When Contracting">
@@ -270,6 +271,7 @@ img { display: block; max-width: 100%; }
         </div>
       </form>
 
+      <p class="availability">3 Spots Left</p>
       <img class="trust-badge" src="/assets/bbb-accredited.svg" alt="BBB Accredited Business" width="181" height="63" loading="lazy">
       <p class="funnel-legal"><a href="/privacy/">Privacy Policy</a></p>
     </div>
