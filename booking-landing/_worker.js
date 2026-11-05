@@ -6,6 +6,8 @@ const TIMEZONE = 'America/New_York';
 const SLOT_DURATION_MS = 60 * 60 * 1000;
 const FORM_SUBMITTED_TAG = 'booking-form-submitted';
 const APPOINTMENT_REQUESTED_TAG = 'appointment requested';
+// Temporary testing switch: blocks all GHL writes and Meta tracking.
+const FUNNEL_TEST_MODE = true;
 const SCOPES = new Set([
   'Bathroom Remodel',
   'Kitchen Remodel',
@@ -299,12 +301,26 @@ export default {
           },
         });
       }
+      if (FUNNEL_TEST_MODE && response.headers.get('content-type')?.includes('text/html')) {
+        const headers = new Headers(response.headers);
+        headers.set('Cache-Control', 'no-store');
+        headers.delete('Content-Length');
+        const html = (await response.text())
+          .replace(/<script\b[^>]*src="\/assets\/tracking-[^"]+"[^>]*><\/script>/g, '')
+          .replace('</body>', '<div role="status" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:8px;text-align:center;background:#fff3cd;color:#513c06;font:600 13px system-ui">TEST MODE — no contacts, appointments, notifications, or ad tracking</div></body>');
+        return new Response(html, { status: response.status, headers });
+      }
       return response;
     }
     if (request.method === 'POST' && request.headers.get('origin') !== url.origin) {
       return respond({ error: 'Invalid request origin.' }, 403);
     }
     try {
+      if (FUNNEL_TEST_MODE && request.method === 'POST') {
+        if (url.pathname === '/api/lead') return respond({ session: 'test-mode-session', eventId: 'test-lead', testMode: true });
+        if (url.pathname === '/api/appointment') return respond({ appointmentId: 'test-appointment', eventId: 'test-schedule', testMode: true });
+        return respond({ error: 'Writes are disabled during testing.' }, 403);
+      }
       if (url.pathname === '/api/lead' && request.method === 'POST') return await handleLead(request, env, context);
       if (url.pathname === '/api/availability' && request.method === 'GET') return await handleAvailability(url, env);
       if (url.pathname === '/api/appointment' && request.method === 'POST') return await handleAppointment(request, env);
