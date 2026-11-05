@@ -7,7 +7,7 @@ const SLOT_DURATION_MS = 60 * 60 * 1000;
 const FORM_SUBMITTED_TAG = 'booking-form-submitted';
 const APPOINTMENT_REQUESTED_TAG = 'appointment requested';
 // Temporary testing switch: blocks all GHL writes and Meta tracking.
-const FUNNEL_TEST_MODE = true;
+const FUNNEL_TEST_MODE = false;
 const SCOPES = new Set([
   'Bathroom Remodel',
   'Kitchen Remodel',
